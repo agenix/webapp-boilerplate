@@ -7,12 +7,11 @@ interface propsInterface {
     toggleMenu: (event: any) => void
  }
 
-const SideMenu: React.FC<propsInterface> = (props) => {
+const Menu: React.FC<propsInterface> = (props) => {
   const { global } = useContext(Context) as {global: any; setGlobal: React.Dispatch<React.SetStateAction<any>>};
   const txt = translations[global.language];
 
   return (
-    <aside className='menu' id='menu'>
     <div className='items'>
       <div className='title'>{txt.aboutWorbli}</div>
         <div className='item' id='direction' onClick={props.toggleMenu}>
@@ -59,8 +58,7 @@ const SideMenu: React.FC<propsInterface> = (props) => {
           </div>
       <div className='title'>{txt.portal}</div>
     </div>
-  </aside>
   );
 }
 
-export {SideMenu};
+export {Menu};

@@ -1,0 +1,42 @@
+.items {
+    padding: 24px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 12px;
+    
+    .title {
+        font-family: Gilroy;
+        padding-top: 24px;
+        font-size: 2.4rem;
+    }
+    
+    .item a {
+        font-size: 16px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    
+    .item a:hover {
+        color: #78C7FC
+    } 
+
+    @media (prefers-color-scheme: dark) {
+        .item a{
+            color: #FFFFFF;
+        }
+        .item a:hover{
+            color: #78C7FC;
+        }
+    }
+    
+    @media (prefers-color-scheme: light) {
+        .item a{
+            color: #363D47;
+        }
+        .item a:hover{
+            color: #267FBE
+        }
+    }
+
+
+}

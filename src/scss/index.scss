@@ -5,24 +5,6 @@
   margin: 0;
 }
 
-.fade-appear, .fade-enter {
-  opacity: 0;
-  z-index: 1;
-}
-.fade-appear-active, .fade-enter.fade-enter-active {
-  opacity: 1;
-  transition: opacity 300ms linear 150ms;
-}
-
-.fade-exit {
-  opacity: 1;
-}
-
-.fade-exit.fade-exit-active {
-  opacity: 0;
-  transition: opacity 150ms linear;
-}
-
 @font-face {
   font-family: 'Gilroy';
   src: local('Gilroy ExtraBold'), local('Gilroy-ExtraBold'),
@@ -42,8 +24,8 @@
 }
 
 html {
-  background: $agenixDarkGrey;
-  color: $agenixWhite;
+  background: $background-dark;
+  color: $body-text-dark;
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -68,11 +50,22 @@ html {
     -moz-font-feature-settings: "liga" on;
     font-feature-settings: "liga" on;
     @import "animations/page-animations.scss";
-
-    @import "routes/home.scss";
-    @import "routes/not-found.scss";
-
+    @import "components/layout.scss";
   }
 }
-@import 'media.scss';
+
+@media (prefers-color-scheme: dark) {
+  html {
+      background: $background-dark;
+      color: $body-text-dark;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+  html {
+      background: $background-light;
+      color: $body-text-light;
+    }
+  }
+
 

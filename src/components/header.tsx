@@ -18,15 +18,15 @@ const Header: React.FC<propsInterface> = (props) => {
 
   return (
     <header>
-    <div className="menuLogo"><Link to={{pathname: '/'}}><img src={global.darkMode ? logoDark : logoLight} alt={txt.worbliLogo}/></Link></div>
-    <nav className="menuNav" onClick={props.toggleMenu}><img src={global.darkMode ? menuDark : menuLight} alt={txt.menu}/></nav>
-    <nav className="textNav">
-      <div><Link to={{pathname: '/about'}}>{txt.aboutWorbli}</Link></div>
-      <div><Link to={{pathname: '/involved'}}>{txt.getInvolved}</Link></div>
-      <div><Link to={{pathname: '/progress'}}>{txt.progress}</Link></div>
-      <div><Link to={{pathname: '/who'}}>{txt.whoWeAre}s</Link></div>
-      <div>{txt.portal}</div>
-    </nav>
+      <div className="menuLogo"><Link to={{pathname: '/'}}><img src={global.darkMode ? logoDark : logoLight} alt={txt.worbliLogo}/></Link></div>
+      <nav className="menuNav" onClick={props.toggleMenu}><img src={global.darkMode ? menuDark : menuLight} alt={txt.menu}/></nav>
+      <nav className="textNav">
+        <div><Link to={{pathname: '/about'}}>{txt.aboutWorbli}</Link></div>
+        <div><Link to={{pathname: '/involved'}}>{txt.getInvolved}</Link></div>
+        <div><Link to={{pathname: '/progress'}}>{txt.progress}</Link></div>
+        <div><Link to={{pathname: '/who'}}>{txt.whoWeAre}</Link></div>
+        <div>{txt.portal}</div>
+      </nav>
   </header>
   );
 }

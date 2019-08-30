@@ -1,0 +1,60 @@
+.screen {
+    overflow: hidden;
+    position: relative;
+    height: 100vh;
+
+    .layout {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-column-gap: 12px;
+        grid-row-gap: 12px;
+        
+        .menu {
+            width: 300px;
+            height: 100vh;
+            right: -300px;
+            position: absolute;
+            
+            @import 'menu.scss';
+        }
+
+        @import 'header.scss';
+        
+        .page {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+        }
+
+    }
+
+}
+
+@media (prefers-color-scheme: dark) {
+    .screen {
+        .layout{
+            .menu {
+                background-color: $menu-background-dark;
+                border-left: 1px solid $top-border-dark;
+            }
+            .header {
+                border-bottom: 1px solid $top-border-dark;
+                border-top: 1px solid $top-border-dark;
+            }
+        }
+    }
+}
+@media (prefers-color-scheme: light) {
+    .screen {
+        .layout{
+            .menu {
+                background-color: $menu-background-light;
+                border-left: 1px solid $top-border-light;
+            }
+            .header {
+                border-bottom: 1px solid $top-border-light;
+            }
+        }
+    }
+}
