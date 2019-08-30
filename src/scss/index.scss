@@ -1,0 +1,60 @@
+@import "variables.scss";
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: local('Gilroy ExtraBold'), local('Gilroy-ExtraBold'),
+      url('../fonts/Gilroy-ExtraBold.woff2') format('woff2'),
+      url('../fonts/Gilroy-ExtraBold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: local('Open Sans'), local('OpenSans'),
+      url('../fonts/OpenSans.woff2') format('woff2'),
+      url('../fonts/OpenSans.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  background: $agenixDarkGrey;
+  color: $agenixWhite;
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  font-size: 62.5%;
+  height: 100vh;
+  content: "";
+
+  body {
+    margin: 0;
+    font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    letter-spacing: 0;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.5;
+    font-size: 1.8rem;
+    height: 100vh;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -moz-font-feature-settings: "liga" on;
+    font-feature-settings: "liga" on;
+    @import "animations/page-animations.scss";
+
+    @import "routes/home.scss";
+    @import "routes/not-found.scss";
+
+  }
+}
+@import 'media.scss';
+
