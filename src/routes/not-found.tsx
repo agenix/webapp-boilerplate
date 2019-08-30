@@ -8,7 +8,7 @@ const NotFound: React.FC = () => {
   
   return (    
 
-    <div className="not-found bg">
+    <div className="not-found bg page">
       <div className="home-grid">
         
         <div className="logo">

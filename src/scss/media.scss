@@ -3,17 +3,28 @@
       background: $agenixWhite;
       color: $agenixDarkGrey;
       body {
-        .screen {
+        .layout {
           .menu {
             background-color: $menu-background-light;
+            .items {
+              .item a{
+                color: #363D47;
+              }
+              .item a:hover{
+                color: #267FBE
+              }
+            }
           }
           .home {
             .header {
               border-bottom: 1px solid $top-border-light;
             }
             header {
-              .textNav {
+              .textNav a {
                 color: #363D47;
+              }
+              .textNav a:hover{
+                color: #267FBE
               }
             }
           }
@@ -27,17 +38,28 @@
       background: $agenixDarkGrey;
       color: $agenixWhite;
       body {
-        .screen {
+        .layout {
           .menu {
             background-color: $menu-background-dark;
+            .items {
+              .item a{
+                color: #FFFFFF;
+              }
+              .item a:hover{
+                color: #78C7FC;
+              }
+            }
           }
           .home {
             .header {
               border-bottom: 1px solid $top-border-dark;
             }
             header {
-              .textNav {
+              .textNav a{
               color: #FFFFFF;
+              }
+              .textNav a:hover{
+                color: #78C7FC
               }
             }
           }
@@ -49,7 +71,7 @@
 @media screen and (min-width: 450px) {
   html {
     body {
-      .screen {
+      .layout {
         .home{
           header {
             .menuNav {
@@ -65,7 +87,7 @@
 @media screen and (min-width: 800px) {
   html {
     body {
-      .screen {
+      .layout {
         .menu {
           display: none;
         }
@@ -94,7 +116,7 @@
 @media screen and (min-width: 1150px) {
   html {
     body {
-      .screen {
+      .layout {
         .menu {
           display: none;
         }
