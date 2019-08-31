@@ -9,6 +9,11 @@
         grid-column-gap: 12px;
         grid-row-gap: 12px;
         
+        .body {
+            position: relative;
+            display: block;
+            min-height: calc(100vh - 290px);
+        }
         .cover {
             display: none;
             cursor: pointer;
@@ -38,7 +43,6 @@
         }
         .page {
             position: absolute;
-            top: 60px;
             left: 0;
             right: 0;
         }

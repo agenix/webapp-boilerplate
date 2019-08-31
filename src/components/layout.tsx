@@ -42,7 +42,7 @@ const Layout: React.FC = (props) => {
         <section className='menu'><Menu toggleMenu={toggleMenu}/></section>
         <section className='header'><Header toggleMenu={toggleMenu}/></section>
         <section className='cover' id='cover' onClick={toggleMenu}></section>
-        <section>{props.children}</section>
+        <section className='body'>{props.children}</section>
         <section className='footer'><Footer/></section>
       </main>
     </div>
