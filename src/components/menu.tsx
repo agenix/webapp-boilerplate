@@ -12,7 +12,9 @@ const Menu: React.FC<propsInterface> = (props) => {
   const txt = translations[global.language];
 
   return (
+    
     <div className='items'>
+      <div className='close' onClick={props.toggleMenu}>+</div>
       <div className='title'>{txt.aboutWorbli}</div>
         <div className='item' id='direction' onClick={props.toggleMenu}>
           <Link to={{pathname: '/direction'}}>{txt.directionAim}</Link>
