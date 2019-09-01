@@ -10,7 +10,38 @@ const Footer: React.FC = () => {
   const txt = translations[global.language];
 
   return (
-<div>Footer</div>
+    <footer>
+      <div className='area'>
+        <div className='title'>{txt.contactUs}</div>
+        <div>{txt.telegram}</div>
+        <div>{txt.email}</div>
+        <div className='fill'>&nbsp;</div>
+        <div className='fill'>&nbsp;</div>
+      </div>
+      <div className='area'>
+        <div className='title'>{txt.followUs}</div>
+        <div>{txt.medium}</div>
+        <div>{txt.twitter}</div>
+        <div>{txt.facebook}</div>
+        <div>{txt.youtube}</div>
+      </div>
+      <div className='area'>
+        <div className='title'>{txt.quickLinks}</div>
+        <div>{txt.blockExplorer}</div>
+        <div>{txt.exchanges}</div>
+        <div>{txt.makeReport}</div>
+        <div>{txt.blockProducerSheet}</div>
+      </div>
+      <div className='bigarea'>
+        <div className="span-col-4">Logo</div>
+        <div>{txt.termsAndConditions}</div>
+        <div>{txt.privacyPolicy}</div>
+        <div>{txt.sitemap}</div>
+        <div>{txt.accessibility}</div>
+        <div className="span-col-4">{txt.copyright}</div>
+        <div>&nbsp;</div>
+      </div>
+    </footer>
   );
 }
 

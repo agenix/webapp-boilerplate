@@ -2,17 +2,26 @@
     overflow: hidden;
     position: relative;
     height: 100vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 
     .layout {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         grid-column-gap: 12px;
         grid-row-gap: 12px;
+        position: relative;
         
         .body {
             position: relative;
             display: block;
-            min-height: calc(100vh - 290px);
+
+            .page {
+                position: absolute;
+                left: 0;
+                right: 0;
+                display: block;
+            }
         }
         .cover {
             display: none;
@@ -34,17 +43,12 @@
             @import 'menu.scss';
         }
 
-        @import 'header.scss';
+        .header {
+            @import 'header.scss';
+        }
 
         .footer{
-            height: 200px;
-            border-bottom: 50px solid black;
             @import 'footer.scss';
-        }
-        .page {
-            position: absolute;
-            left: 0;
-            right: 0;
         }
 
     }
@@ -71,6 +75,7 @@
         }
     }
 }
+
 @media (prefers-color-scheme: light) {
     .screen {
         .layout{

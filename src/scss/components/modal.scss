@@ -1,0 +1,62 @@
+.modal {
+    background-color: black;
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    
+    .form  {
+        min-width: 400px;
+        min-height: 400px;
+        background-color: aliceblue;
+        border-radius: 3px;
+        cursor: default;
+    }
+
+    .close {
+        user-select: none;
+        font-family: 'Open Sans';
+        transform-origin: center center;  
+        transform: rotate(45deg);
+        font-size: 40px;
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        right: 5px;
+        top: 10px;
+        cursor: pointer;
+    }
+
+}
+.modal-title {
+    cursor: pointer;
+}
+
+@media (prefers-color-scheme: dark) {
+
+        .modal-title{
+            color: #FFFFFF;
+        }
+        .modal-title:hover{
+            color: #78C7FC
+        }
+
+}
+
+@media (prefers-color-scheme: light) {
+
+        .modal-title {
+            color: #363D47;
+        }
+        .modal-title:hover{
+            color: #267FBE
+        }
+
+}

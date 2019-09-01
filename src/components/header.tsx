@@ -2,6 +2,7 @@ import React, {useContext} from 'react';
 import Context from './context';
 import {translations} from '../translations/home';
 import {Link} from 'react-router-dom';
+import {Modal} from '../components/modal';
 
 import logoDark from '../images/logoDark.svg';
 import logoLight from '../images/logoLight.svg';
@@ -9,8 +10,8 @@ import menuDark from '../images/menuDark.svg';
 import menuLight from '../images/menuLight.svg';
 
 interface propsInterface {
-    toggleMenu: (event: any) => void
- }
+  toggleMenu: (event: any) => void
+}
 
 const Header: React.FC<propsInterface> = (props) => {
   const { global } = useContext(Context) as {global: any; setGlobal: React.Dispatch<React.SetStateAction<any>>};
@@ -18,18 +19,18 @@ const Header: React.FC<propsInterface> = (props) => {
 
   return (
     <header>
-      <div className="menuLogo"><Link to={{pathname: '/'}}><img src={global.darkMode ? logoDark : logoLight} alt={txt.worbliLogo}/></Link></div>
+      <Link to={{pathname: '/'}}><div className="menuLogo"><img src={global.darkMode ? logoDark : logoLight} alt={txt.worbliLogo}/></div></Link>
       <nav className="menuNav" onClick={props.toggleMenu}><img src={global.darkMode ? menuDark : menuLight} alt={txt.menu}/></nav>
       <nav className="textNav">
-        <div><Link to={{pathname: '/about'}}>{txt.aboutWorbli}</Link></div>
-        <div><Link to={{pathname: '/involved'}}>{txt.getInvolved}</Link></div>
-        <div><Link to={{pathname: '/progress'}}>{txt.progress}</Link></div>
-        <div><Link to={{pathname: '/who'}}>{txt.whoWeAre}</Link></div>
-        <div>{txt.portal}</div>
+        <Link to={{pathname: '/about'}}><div>{txt.aboutWorbli}</div></Link>
+        <Link to={{pathname: '/involved'}}><div>{txt.getInvolved}</div></Link>
+        <Link to={{pathname: '/progress'}}><div>{txt.progress}</div></Link>
+        <Link to={{pathname: '/who'}}><div>{txt.whoWeAre}</div></Link>
+        {/* <div>{txt.portal}</div> */}
+        <div><Modal title='Register'/></div>
       </nav>
-  </header>
+    </header>
   );
 }
 
 export {Header};
-

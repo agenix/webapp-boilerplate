@@ -1,8 +1,11 @@
 import React from "react";
+import { Footer } from '../components/footer';
 
 const Home: React.FC = () => {
   return (
-    <div className='page'>Home</div>
+    <div className='page'>Home
+    <section className='footer'><Footer/></section>
+    </div>
   );
 
 } 
