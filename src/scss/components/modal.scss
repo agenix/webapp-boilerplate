@@ -1,22 +1,70 @@
 .modal {
-    background-color: black;
+    white-space: normal;
+    line-height: 2rem;
+    background-color: rgba(0,0,0,0);
     z-index: 9999;
     position: fixed;
     left: 0;
     right: 0;
-    opacity: 0;
     display: none;
     align-items: center;
     justify-content: center;
     height: 100vh;
     cursor: pointer;
     
-    .form  {
-        min-width: 400px;
-        min-height: 400px;
-        background-color: aliceblue;
-        border-radius: 3px;
+    .form {
+        font-size: 15px;
+        font-weight: normal;
+        line-height: 20px;
+        display: grid;
+        grid-template-columns: repeat(1, auto);
+        grid-gap: 12px;
+        color: #363D47;
+        width: 400px;
+        background-color: white;
+        border-radius: 5px;
+        opacity: 0;
         cursor: default;
+        padding: 40px;
+        .text {
+            padding-bottom: 12px;
+        }
+        .small-text {
+            text-align: center;
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 20px;
+            span {
+                font-weight: 600;
+                cursor: pointer;
+            }
+        }
+        .title {
+            font-family: Gilroy;
+            font-size: 24px;
+        }
+        .input-text {
+            vertical-align: middle;
+            padding: 10px 12px;
+            line-height: 19px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #393D4D;
+            background: #EBECED;
+            font-weight: 500;
+        }
+        .btn-join {
+            padding: 0 20px;
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+            line-height: 40px;
+            border-radius: 5px;
+            font-size: 14.5px;
+            background: #2581E3;
+        }
+
     }
 
     .close {
@@ -40,22 +88,45 @@
 
 @media (prefers-color-scheme: dark) {
 
-        .modal-title{
-            color: #FFFFFF;
+    .modal {
+        .form {
+            border: 1px solid $modal-border-dark;
+            background-color: $modal-background-dark;
+            color: $modal-text-dark;
+            .small-text {
+                span {
+                   color: $text-link-dark 
+                }
+            }
         }
-        .modal-title:hover{
-            color: #78C7FC
-        }
+    }
+    .modal-title {
+        color: #FFFFFF;
+    }
+    .modal-title:hover {
+        color: #78C7FC
+    }
 
 }
 
 @media (prefers-color-scheme: light) {
-
-        .modal-title {
-            color: #363D47;
+    .modal {
+        .form {
+            border: 1px solid $modal-border-light;
+            background-color: $modal-background-light;
+            color: $modal-text-light;
+            .small-text {
+                span {
+                   color: $text-link-light 
+                }
+            }
         }
-        .modal-title:hover{
-            color: #267FBE
-        }
+    }
+    .modal-title {
+        color: #363D47;
+    }
+    .modal-title:hover{
+        color: #267FBE
+    }
 
 }
