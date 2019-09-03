@@ -12,68 +12,13 @@
     height: 100vh;
     cursor: pointer;
     
-    .form {
-        font-size: 15px;
-        font-weight: normal;
-        line-height: 20px;
-        display: grid;
-        grid-template-columns: repeat(1, auto);
-        grid-gap: 12px;
-        color: #363D47;
+    .card {
         width: 400px;
-        background-color: white;
         border-radius: 5px;
         opacity: 0;
         cursor: default;
         padding: 40px;
-        .label {
-            display: block;
-            padding: 8px 0 6px;
-        }
-        .text {
-            padding-bottom: 12px;
-        }
-        .small-text {
-            text-align: center;
-            font-size: 12px;
-            font-weight: 500;
-            line-height: 20px;
-            span {
-                font-weight: 600;
-                cursor: pointer;
-            }
-        }
-        .title {
-            font-family: Gilroy;
-            font-size: 24px;
-        }
-        .input-text {
-            width: 100%;
-            vertical-align: middle;
-            padding: 10px 12px;
-            line-height: 19px;
-            border: none;
-            border-radius: 5px;
-            font-size: 14px;
-            color: #393D4D;
-            background: #EBECED;
-            font-weight: 500;
-        }
-        .btn-join {
-            padding: 0 20px;
-            color: #fff;
-            font-weight: 700;
-            cursor: pointer;
-            line-height: 40px;
-            border-radius: 5px;
-            font-size: 14.5px;
-            background: #2581E3;
-            margin: 8px 0 6px;
-            .loading {
-                height: 10px;
-            }
-        }
-
+        @import 'join.scss';
     }
 }
 .modal-title {
@@ -83,44 +28,34 @@
 @media (prefers-color-scheme: dark) {
 
     .modal {
-        .form {
+        .card {
             border: 1px solid $modal-border-dark;
             background-color: $modal-background-dark;
             color: $modal-text-dark;
-            .small-text {
-                span {
-                   color: $text-link-dark 
-                }
-            }
         }
     }
     .modal-title {
-        color: #FFFFFF;
+        color: $body-text-dark;
     }
     .modal-title:hover {
-        color: #78C7FC
+        color: $link-text-dark
     }
 
 }
 
 @media (prefers-color-scheme: light) {
     .modal {
-        .form {
+        .card {
             border: 1px solid $modal-border-light;
             background-color: $modal-background-light;
             color: $modal-text-light;
-            .small-text {
-                span {
-                   color: $text-link-light 
-                }
-            }
         }
     }
     .modal-title {
-        color: #363D47;
+        color: $body-text-light;
     }
     .modal-title:hover{
-        color: #267FBE
+        color: $link-text-light
     }
 
 }

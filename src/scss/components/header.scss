@@ -43,10 +43,10 @@ header {
 @media (prefers-color-scheme: dark) {
     header {
         .textNav a{
-            color: #FFFFFF;
+            color: $body-text-dark;
         }
         .textNav a:hover{
-            color: #78C7FC
+            color: $link-text-dark
         }
     }
 }
@@ -54,10 +54,10 @@ header {
 @media (prefers-color-scheme: light) {
     header {
         .textNav a {
-            color: #363D47;
+            color: $body-text-light;
         }
         .textNav a:hover{
-            color: #267FBE
+            color: $link-text-light
         }
     }
 }
@@ -72,7 +72,6 @@ header {
       }
       .menuNav {
         display: none;
-        
       }
       .textNav {
         display: grid;
