@@ -19,8 +19,8 @@ const Header: React.FC<propsInterface> = (props) => {
 
   return (
     <header>
-      <Link to={{pathname: '/'}}><div className="menuLogo"><img src={global.darkMode ? logoDark : logoLight} alt={txt.worbliLogo}/></div></Link>
       <nav className="menuNav" onClick={props.toggleMenu}><img src={global.darkMode ? menuDark : menuLight} alt={txt.menu}/></nav>
+      <Link to={{pathname: '/'}}><div className="menuLogo"><img src={global.darkMode ? logoDark : logoLight} alt={txt.worbliLogo}/></div></Link>
       <nav className="textNav">
         <Link to={{pathname: '/about'}}><div>{txt.aboutWorbli}</div></Link>
         <Link to={{pathname: '/involved'}}><div>{txt.getInvolved}</div></Link>

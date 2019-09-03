@@ -1,7 +1,7 @@
 header {
     user-select: none;
     display: grid;
-    grid-template-columns: auto 70px;
+    grid-template-columns: 70px auto;
     height: 64px;
     max-width: 1150px;
     min-width: 300px;
@@ -10,7 +10,7 @@ header {
 
     .menuLogo {
         text-align: center;
-        padding-left: 70px;
+        padding-right: 70px;
 
         img {
             vertical-align: middle;

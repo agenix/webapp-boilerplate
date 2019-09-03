@@ -27,10 +27,11 @@ const Router: React.FC = () => {
   const [global, setGlobal] = useState({
     language: 'en',
     darkMode: window.matchMedia('(prefers-color-scheme: dark)').matches || false,
+    apiUrl: 'http://127.0.0.1:8888',
   });
 
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener( "change", (e) => {
-    if (e.matches !== global.darkMode) setGlobal({...global, darkMode: !global.darkMode}) 
+    if (e.matches !== global.darkMode) setGlobal({...global, darkMode: !global.darkMode})
   });
 
   

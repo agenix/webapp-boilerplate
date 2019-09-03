@@ -1,3 +1,5 @@
+import { string } from "prop-types";
+
 export const translations: { [key: string]: {
     language: string,
     aboutWorbli: string,
@@ -37,6 +39,11 @@ export const translations: { [key: string]: {
     sitemap: string,
     accessibility: string,
     copyright: string,
+    joinWorbli: string,
+    worbliIs: string,
+    password: string,
+    alreadyOnWorbli: string,
+    logIn: string,
   }} = {
   cn: {
     language: 'Chinese',
@@ -77,6 +84,11 @@ export const translations: { [key: string]: {
     sitemap: 'Sitemap',
     accessibility: 'Accessibility',
     copyright: 'Ⓒ Worbli LLC 2019',
+    joinWorbli: 'Join Worbli',
+    worbliIs: 'Worbli is the place to discover amazing dApps curated by our global community.',
+    password: 'Password',
+    alreadyOnWorbli: 'Already on Worbli?',
+    logIn: 'Log In.',
   },
   en: {
     language: 'English',
@@ -117,8 +129,10 @@ export const translations: { [key: string]: {
     sitemap: 'Sitemap',
     accessibility: 'Accessibility',
     copyright: 'Ⓒ Worbli LLC 2019',
+    joinWorbli: 'Join Worbli',
+    worbliIs: 'Worbli is the place to discover amazing dApps curated by our global community.',
+    password: 'Password',
+    alreadyOnWorbli: 'Already on Worbli?',
+    logIn: 'Log In.',
   },
 }
-
-
-

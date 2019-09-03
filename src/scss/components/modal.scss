@@ -26,6 +26,10 @@
         opacity: 0;
         cursor: default;
         padding: 40px;
+        .label {
+            display: block;
+            padding: 8px 0 6px;
+        }
         .text {
             padding-bottom: 12px;
         }
@@ -44,6 +48,7 @@
             font-size: 24px;
         }
         .input-text {
+            width: 100%;
             vertical-align: middle;
             padding: 10px 12px;
             line-height: 19px;
@@ -63,24 +68,13 @@
             border-radius: 5px;
             font-size: 14.5px;
             background: #2581E3;
+            margin: 8px 0 6px;
+            .loading {
+                height: 10px;
+            }
         }
 
     }
-
-    .close {
-        user-select: none;
-        font-family: 'Open Sans';
-        transform-origin: center center;  
-        transform: rotate(45deg);
-        font-size: 40px;
-        width: 40px;
-        height: 40px;
-        position: absolute;
-        right: 5px;
-        top: 10px;
-        cursor: pointer;
-    }
-
 }
 .modal-title {
     cursor: pointer;
