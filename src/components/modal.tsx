@@ -1,13 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Join} from './join';
+import {Login} from './login';
 
 interface propsInterface {
     title: string; 
 }
 
 const Modal: React.FC<propsInterface> = (props) => {
+  const [state, setState] = useState({showLogin: false});
   let modalState = false;
+
   
+  function toggleLogin(event: any) {
+    setState({...state, showLogin: !state.showLogin});
+  }
   function toggleModal(event: any) {
     if (event.target.id !== 'modal') return;
     modalState = !modalState;
@@ -31,7 +37,9 @@ const Modal: React.FC<propsInterface> = (props) => {
     <div>
       <div className='modal' id='modal' onClick={toggleModal}>
         <div className='card' id='card'>
-          <Join/>
+        {state.showLogin 
+        ? <Login toggleLogin={toggleLogin} toggleModal={toggleModal}/> 
+        : <Join toggleLogin={toggleLogin} toggleModal={toggleModal}/>}
         </div>
       </div>
       <div onClick={toggleModal} className='modal-title' id='modal'> {props.title}</div>

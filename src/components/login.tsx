@@ -5,11 +5,11 @@ import loading from '../images/loading.svg';
 import {Error} from './error'
 
 interface propsInterface {
-  toggleModal: (event: any) => void
+  toggleModal: (event: any) => void,
   toggleLogin: (event: any) => void,
 }
 
-const Join: React.FC<propsInterface> = (props) => {
+const Login: React.FC<propsInterface> = (props) => {
   const { global } = useContext(Context) as {global: any; setGlobal: React.Dispatch<React.SetStateAction<any>>};
   const [state, setState] = useState({loading: false, email: '', password: '', emailError: '', passwordError: ''});
   const formValue = (event: React.ChangeEvent<HTMLInputElement>) => {setState({...state, [event.target.name]: event.target.value})}
@@ -72,7 +72,7 @@ const Join: React.FC<propsInterface> = (props) => {
 
   return (
     <div className='join'>
-      <div className='title'>{txt.joinWorbli}</div> 
+      <div className='title'>Login</div> 
       <p className='text'>{txt.worbliIs}</p>
       <span>
         <label className="label">{txt.email}</label>
@@ -101,9 +101,9 @@ const Join: React.FC<propsInterface> = (props) => {
       <button className="btn-join" onClick={submitForm}>
         {!state.loading ? 'Join Now!' : <img src={loading} alt="loading" className='loading'/>}
       </button>
-      <p className='small-text'>{txt.alreadyOnWorbli} <span onClick={props.toggleLogin}>{txt.logIn}</span></p>
+      <p className='small-text'>New to Worbli? <span onClick={props.toggleLogin}> Join Worbli</span></p>
     </div>
   );
 }
 
-export {Join};
+export {Login};
