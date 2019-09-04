@@ -14,9 +14,7 @@
     }
     span {
         position: relative;
-    }
-    small {
-        position: fixed;
+        @import 'error.scss';
     }
     .small-text {
         text-align: center;
@@ -35,7 +33,7 @@
     .input-text {
         width: 100%;
         vertical-align: middle;
-        padding: 10px 12px;
+        padding: 8px 12px;
         line-height: 19px;
         border: none;
         border-radius: 5px;
@@ -43,6 +41,12 @@
         color: #393D4D;
         background: #EBECED;
         font-weight: 500;
+        border: 2px solid transparent;
+    }
+    .error {
+        border: 2px solid $text-error;
+        color: $border-error;
+
     }
     .btn-join {
         padding: 0 20px;

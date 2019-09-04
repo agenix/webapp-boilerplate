@@ -2,36 +2,68 @@ import React, {useContext, useState} from 'react';
 import Context from './context';
 import {translations} from '../translations/home';
 import loading from '../images/loading.svg';
+import {Error} from './error'
 
 const Join: React.FC = () => {
   const { global } = useContext(Context) as {global: any; setGlobal: React.Dispatch<React.SetStateAction<any>>};
-  const [state, setState] = useState({loading: false, email: '', password: ''});
+  const [state, setState] = useState({loading: false, email: '', password: '', emailError: '', passwordError: ''});
   const formValue = (event: React.ChangeEvent<HTMLInputElement>) => {setState({...state, [event.target.name]: event.target.value})}
   const txt = translations[global.language];
 
   async function submitForm() {
-    setState({...state, loading: true});
-    // validate the data before sending it!
-    // show error message to the UI
-    const response = await fetch(`${global.apiUrl}/user/register`, {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({email: state.email, password: state.password})
-    });
-    const content = await response.json();
-    if(response.status === 200) {
-      console.log(content.message);
-      // next?
-    } else {
-      console.log(content.message);
-      // show error message to the UI
-    }
-    setState({...state, loading: false});
+    const valid = validate(state.email, state.password);
+    if (valid) {
+      setState({...state, loading: true, emailError:'', passwordError: ''});
+      const response = await fetch(`${global.apiUrl}/user/register`, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({email: state.email, password: state.password})
+      });
+      const content = await response.json();
+      if (response.status === 200) {
+        if (Array.isArray(content)) {
+          setState({...state, loading: false, emailError: content[0].message, passwordError: ''});
+        } else {
+          setState({...state, loading: false, emailError: '', passwordError: ''});
+          console.log(content);
+        }
+      } else {
+        setState({...state, emailError: content.message || response.status});
+      }
+    };
+  };
+
+
+  function validateEmail(email: string) {
+    const emailRegex = /\S+@\S+\.\S+/;
+    if (!email) return 'Email is required';
+    if (!emailRegex.test(email)) return 'Email is invalid'; 
+    return ''; 
   }
 
+  function validatePassword(password: string) {
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?:.{6,})$/;
+    if (!password) return 'Password is required';
+    if (!passwordRegex.test(password)) return 'Passwords should be 6 characters or more and have one or more upper case characters';
+    return '';
+  }
+
+  function validate(email: string, password: string) {
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
+    const emailError = validateEmail(email);
+    const passwordError = validatePassword(password);
+    setState({...state, emailError, passwordError});
+    if (emailError && emailInput) emailInput.classList.add("error")
+    else if (emailInput) emailInput.classList.remove("error")
+    if (passwordError && passwordInput) passwordInput.classList.add("error")
+    else if (passwordInput) passwordInput.classList.remove("error")
+    if (emailError || passwordError) return false
+    else return true
+  }
 
   return (
     <div className='join'>
@@ -39,25 +71,27 @@ const Join: React.FC = () => {
       <p className='text'>{txt.worbliIs}</p>
       <span>
         <label className="label">{txt.email}</label>
-        <input 
+        <input
+          id="email"
           type="input" 
           className="input-text" 
           name="email" 
           placeholder="Email address" 
           onChange={formValue}
         ></input>
-        <small>error</small>
+        {state.emailError &&<Error message={state.emailError}/>}
       </span>
       <span>
         <label className="label">{txt.password}</label>
         <input 
+          id="password"
           type="password" 
           className="input-text" 
           name="password" 
           placeholder="Create a password" 
           onChange={formValue}
         ></input>
-        <small>error</small>
+        {state.passwordError && <Error message={state.passwordError}/>}
       </span>       
       <button className="btn-join" onClick={submitForm}>
         {!state.loading ? 'Join Now!' : <img src={loading} alt="loading" className='loading'/>}
