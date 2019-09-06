@@ -11,12 +11,12 @@ interface propsInterface {
 
 const Join: React.FC<propsInterface> = (props) => {
   const { global } = useContext(Context) as {global: any; setGlobal: React.Dispatch<React.SetStateAction<any>>};
-  const [state, setState] = useState({loading: false, email: '', password: '', emailError: '', passwordError: ''});
+  const [state, setState] = useState({loading: false, email: '', newPassword: '', emailError: '', passwordError: ''});
   const formValue = (event: React.ChangeEvent<HTMLInputElement>) => {setState({...state, [event.target.name]: event.target.value})}
   const txt = translations[global.language];
 
   async function submitForm() {
-    const valid = validate(state.email, state.password);
+    const valid = validate(state.email, state.newPassword);
     if (valid) {
       setState({...state, loading: true, emailError:'', passwordError: ''});
       const response = await fetch(`${global.apiUrl}/user/register`, {
@@ -25,7 +25,7 @@ const Join: React.FC<propsInterface> = (props) => {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({email: state.email, password: state.password})
+        body: JSON.stringify({email: state.email, password: state.newPassword})
       });
       const content = await response.json();
       if (response.status === 200) {
@@ -75,6 +75,18 @@ const Join: React.FC<propsInterface> = (props) => {
       <div className='title'>{txt.joinWorbli}</div> 
       <p className='text'>{txt.worbliIs}</p>
       <span>
+        <label className="label">{txt.fullName}</label>
+        <input
+          id="name"
+          type="input" 
+          className="input-text" 
+          name="name" 
+          placeholder="Full name" 
+          onChange={formValue}
+        ></input>
+        {state.emailError &&<Error message={state.emailError}/>}
+      </span>
+      <span>
         <label className="label">{txt.email}</label>
         <input
           id="email"
@@ -89,11 +101,11 @@ const Join: React.FC<propsInterface> = (props) => {
       <span>
         <label className="label">{txt.password}</label>
         <input 
-          id="password"
+          id="newPassword"
           type="password" 
           className="input-text" 
-          name="password" 
-          placeholder="Create a password" 
+          name="newPassword" 
+          placeholder="Your password" 
           onChange={formValue}
         ></input>
         {state.passwordError && <Error message={state.passwordError}/>}

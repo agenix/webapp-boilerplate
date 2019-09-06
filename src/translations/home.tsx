@@ -42,6 +42,7 @@ export const translations: { [key: string]: {
     password: string,
     alreadyOnWorbli: string,
     logIn: string,
+    fullName: string,
   }} = {
   cn: {
     language: 'Chinese',
@@ -87,6 +88,7 @@ export const translations: { [key: string]: {
     password: 'Password',
     alreadyOnWorbli: 'Already on Worbli?',
     logIn: 'Log In.',
+    fullName: 'Full Name',
   },
   en: {
     language: 'English',
@@ -132,5 +134,6 @@ export const translations: { [key: string]: {
     password: 'Password',
     alreadyOnWorbli: 'Already on Worbli?',
     logIn: 'Log In.',
+    fullName: 'Full Name',
   },
 }
