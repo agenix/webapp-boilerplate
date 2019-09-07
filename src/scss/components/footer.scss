@@ -27,7 +27,7 @@ footer {
         display: grid;
         grid-template-columns: repeat(4, auto);
         .footerLogo img {
-            width: 125px;
+            width: 100px;
         }
     }
     .span-col-4{grid-column: span 4 / auto;}

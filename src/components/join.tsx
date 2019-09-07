@@ -12,7 +12,7 @@ interface propsInterface {
 const Join: React.FC<propsInterface> = (props) => {
   const { global, setGlobal } = useContext(Context) as {global: any; setGlobal: React.Dispatch<React.SetStateAction<any>>};
   const [state, setState] = useState({loading: false, email: '', newPassword: '', fullName: '', emailError: '', passwordError: '', fullNameError:''});
-  const formValue = (event: React.ChangeEvent<HTMLInputElement>) => {setState({...state, [event.target.name]: event.target.value})}
+  const formValue = (event: React.ChangeEvent<HTMLInputElement>) => {setState({...state, [event.target.name]: event.target.value.trim()})}
   const txt = translations[global.language];
 
   async function submitForm() {
@@ -33,9 +33,10 @@ const Join: React.FC<propsInterface> = (props) => {
           setState({...state, loading: false, emailError: content[0].message, passwordError: ''});
         } else {
           setState({...state, loading: false, emailError: '', passwordError: ''});
-          setGlobal({...global, confirmEmail: true, loggedIn: true});
+          setGlobal({...global, confirmEmail: true, loggedIn: true, fullName: state.fullName});
           localStorage.setItem("confirmEmail", 'true');
           localStorage.setItem("loggedIn", 'true');
+          localStorage.setItem("fullName", state.fullName);
           console.log(content + 'You are logged in now!');
         }
       } else {

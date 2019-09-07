@@ -30,6 +30,7 @@ const Router: React.FC = () => {
     apiUrl: 'http://127.0.0.1:8888',
     confirmEmail: localStorage.getItem("confirmEmail") || false,
     loggedIn: localStorage.getItem("loggedIn") || false,
+    fullName: localStorage.getItem("fullName") || '',
   });
 
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener( "change", (e) => {
