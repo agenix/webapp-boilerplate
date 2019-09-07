@@ -1,6 +1,9 @@
 import React, {useContext} from 'react';
 import Context from './context';
 import {translations} from '../translations/home';
+import {Link} from 'react-router-dom';
+import logoDark from '../images/logoDark.svg';
+import logoLight from '../images/logoLight.svg';
 
 const Footer: React.FC = () => {
   const { global } = useContext(Context) as {global: any; setGlobal: React.Dispatch<React.SetStateAction<any>>};
@@ -30,7 +33,7 @@ const Footer: React.FC = () => {
         <div>{txt.blockProducerSheet}</div>
       </div>
       <div className='bigarea'>
-        <div className="span-col-4">Logo</div>
+        <div className="span-col-4"><Link to={{pathname: '/'}}><div className="footerLogo"><img src={global.darkMode ? logoDark : logoLight} alt={txt.worbliLogo}/></div></Link></div>
         <div>{txt.termsAndConditions}</div>
         <div>{txt.privacyPolicy}</div>
         <div>{txt.sitemap}</div>

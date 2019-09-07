@@ -11,21 +11,21 @@ interface propsInterface {
 
 const Join: React.FC<propsInterface> = (props) => {
   const { global, setGlobal } = useContext(Context) as {global: any; setGlobal: React.Dispatch<React.SetStateAction<any>>};
-  const [state, setState] = useState({loading: false, email: '', newPassword: '', emailError: '', passwordError: ''});
+  const [state, setState] = useState({loading: false, email: '', newPassword: '', fullName: '', emailError: '', passwordError: '', fullNameError:''});
   const formValue = (event: React.ChangeEvent<HTMLInputElement>) => {setState({...state, [event.target.name]: event.target.value})}
   const txt = translations[global.language];
 
   async function submitForm() {
-    const valid = validate(state.email, state.newPassword);
+    const valid = validate(state.email, state.newPassword, state.fullName);
     if (valid) {
-      setState({...state, loading: true, emailError:'', passwordError: ''});
+      setState({...state, loading: true, emailError:'', passwordError: '', fullNameError: ''});
       const response = await fetch(`${global.apiUrl}/user/register`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({email: state.email, password: state.newPassword})
+        body: JSON.stringify({email: state.email, password: state.newPassword, fullName: state.fullName})
       });
       const content = await response.json();
       if (response.status === 200) {
@@ -59,17 +59,26 @@ const Join: React.FC<propsInterface> = (props) => {
     return '';
   }
 
-  function validate(email: string, password: string) {
+  function validateFullName(fullName: string) {
+    if (fullName && fullName.length > 35) return 'Name is too long' 
+    return '';
+  }
+
+  function validate(email: string, password: string, fullName: string) {
     const emailInput = document.getElementById("email");
     const passwordInput = document.getElementById("password");
+    const fullNameInput = document.getElementById("fullName");
     const emailError = validateEmail(email);
     const passwordError = validatePassword(password);
-    setState({...state, emailError, passwordError});
+    const fullNameError = validateFullName(fullName);
+    setState({...state, emailError, passwordError, fullNameError});
     if (emailError && emailInput) emailInput.classList.add("error")
     else if (emailInput) emailInput.classList.remove("error")
     if (passwordError && passwordInput) passwordInput.classList.add("error")
     else if (passwordInput) passwordInput.classList.remove("error")
-    if (emailError || passwordError) return false
+    if (fullNameError && fullNameInput) fullNameInput.classList.add("error")
+    else if (fullNameInput) fullNameInput.classList.remove("error")
+    if (emailError || passwordError || fullNameError) return false
     else return true
   }
 
@@ -80,10 +89,10 @@ const Join: React.FC<propsInterface> = (props) => {
       <span>
         <label className="label">{txt.fullName}</label>
         <input
-          id="name"
+          id="fullName"
           type="input" 
           className="input-text" 
-          name="name" 
+          name="fullName" 
           placeholder="Full name" 
           onChange={formValue}
         ></input>

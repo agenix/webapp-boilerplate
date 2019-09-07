@@ -21,7 +21,7 @@ header {
     .textNav {
         white-space: nowrap;
         display: none;
-        grid-template-columns: auto auto auto auto;
+        grid-template-columns: repeat(4, auto);
         grid-gap: 40px;
         font-size: 1.4rem;
         @import 'modal.scss';
@@ -41,8 +41,6 @@ header {
                 position: relative;
                 top: 15px;
                 .initial {
-                    color: white;
-                    background-color: #3080E2;
                     border-radius: 50%;
                     height: 28px;
                     width: 28px;
@@ -53,7 +51,7 @@ header {
                     padding: 1px
                 }
                 .name {
-                    color: white;
+                    
                     font-weight: 600;
                     line-height: 35px;
                     margin: 0 15px 0 5px;
@@ -80,22 +78,54 @@ header {
 
 @media (prefers-color-scheme: dark) {
     header {
-        .textNav a{
-            color: $body-text-dark;
-        }
-        .textNav a:hover{
-            color: $link-text-dark
+        .textNav {
+            .loggedIn {
+                .namePill {
+                    .initial {
+                        color: $namePill-text-dark;
+                        background-color: $namePill-background-dark;
+                    }
+                    .name {
+                        color: $namePill-text-dark;
+                    }
+                }
+                .namePull:hover {
+                    background-color: $namePill-hover-dark;
+                }
+            }
+            a {
+                color: $body-text-dark;
+            }
+            a:hover{
+                color: $link-text-dark
+            }
         }
     }
 }
 
 @media (prefers-color-scheme: light) {
     header {
-        .textNav a {
-            color: $body-text-light;
-        }
-        .textNav a:hover{
-            color: $link-text-light
+        .textNav {
+            .loggedIn {
+                .namePill {
+                    .initial {
+                        color: $namePill-text-light;
+                        background-color: $namePill-background-light;
+                    }
+                    .name {
+                        color: $namePill-text-light;
+                    }
+                }
+                .namePull:hover {
+                    background-color: $namePill-hover-light;
+                }
+            }
+            a {
+                color: $body-text-light;
+            }
+            a:hover{
+                color: $link-text-light
+            }
         }
     }
 }
