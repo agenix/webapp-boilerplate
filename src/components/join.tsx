@@ -33,8 +33,9 @@ const Join: React.FC<propsInterface> = (props) => {
           setState({...state, loading: false, emailError: content[0].message, passwordError: ''});
         } else {
           setState({...state, loading: false, emailError: '', passwordError: ''});
-          setGlobal({...global, confirmEmail: true});
-          localStorage.setItem("confirmEmail", 'true')
+          setGlobal({...global, confirmEmail: true, loggedIn: true});
+          localStorage.setItem("confirmEmail", 'true');
+          localStorage.setItem("loggedIn", 'true');
           console.log(content + 'You are logged in now!');
         }
       } else {

@@ -29,13 +29,13 @@ const Router: React.FC = () => {
     darkMode: window.matchMedia('(prefers-color-scheme: dark)').matches || false,
     apiUrl: 'http://127.0.0.1:8888',
     confirmEmail: localStorage.getItem("confirmEmail") || false,
+    loggedIn: localStorage.getItem("loggedIn") || false,
   });
 
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener( "change", (e) => {
     if (e.matches !== global.darkMode) setGlobal({...global, darkMode: !global.darkMode})
   });
 
-  
   return (    
     <Context.Provider value={{ global, setGlobal }}>
         <BrowserRouter>

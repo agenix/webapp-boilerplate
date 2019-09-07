@@ -10,12 +10,10 @@
         grid-template-columns: repeat(1, 1fr);
         position: relative;
         
-        .email{
-            background-color: #FCEA78;
+        .email {
             text-align: center;
             height: 42px;
             font-size: 1.3rem;
-            color: #161E25;
             line-height: 42px;
             span {
                 font-weight: 800;
@@ -23,7 +21,6 @@
             a {
                 font-weight: 800;
                 text-decoration: none;
-                color: #161E25;
             }
         }
         .body {
@@ -81,10 +78,18 @@
                 border-top: 1px solid $top-border-dark;
             }
             .footer{
+                border-top: 1px solid $top-border-dark;
                 border-bottom: 50px solid $footer-border-dark;
             }
             .cover {
                 background-color: $background-dark;
+            }
+            .email {
+                background-color: $confirm-background-dark;
+                color: $confirm-text-dark;
+                a {
+                    color: $confirm-text-dark;
+                }
             }
         }
     }
@@ -101,10 +106,18 @@
                 border-bottom: 1px solid $top-border-light;
             }
             .footer{
+                border-top: 1px solid $top-border-light;
                 border-bottom: 50px solid $footer-border-lihgt;
             }
             .cover {
                 background-color: $background-light;
+            }
+            .email {
+                background-color: $confirm-background-light;
+                color: $confirm-text-light;
+                a {
+                    color: $confirm-text-light;
+                }
             }
         }
     }

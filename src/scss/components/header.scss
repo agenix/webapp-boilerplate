@@ -21,7 +21,7 @@ header {
     .textNav {
         white-space: nowrap;
         display: none;
-        grid-template-columns: auto auto auto 200px;
+        grid-template-columns: auto auto auto auto;
         grid-gap: 40px;
         font-size: 1.4rem;
         @import 'modal.scss';
@@ -30,6 +30,38 @@ header {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             grid-gap: 12px;
+        }
+        .loggedIn {
+
+            .namePill {
+                display: grid;
+                grid-template-columns: repeat(2, auto);
+                border-radius: 18px;
+                height: 36px;
+                position: relative;
+                top: 15px;
+                .initial {
+                    color: white;
+                    background-color: #3080E2;
+                    border-radius: 50%;
+                    height: 28px;
+                    width: 28px;
+                    text-align: center;
+                    margin: 4px;
+                    line-height: 25px;
+                    font-weight: 600;
+                    padding: 1px
+                }
+                .name {
+                    color: white;
+                    font-weight: 600;
+                    line-height: 35px;
+                    margin: 0 15px 0 5px;
+                }
+            }
+            .namePill:hover {
+                background-color: black;
+            }
         }
     }
 

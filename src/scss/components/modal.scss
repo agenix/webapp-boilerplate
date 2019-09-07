@@ -24,8 +24,6 @@
 .modal-join {
     font-size: 13px;
     cursor: pointer;
-    background-color: #FCEA78;
-    color: #1F262B;
     padding: 0 20px;
     border-radius: 3px;
     line-height: 33px;
@@ -33,13 +31,11 @@
     text-transform: capitalize;
     text-align: center;
     position: relative;
-    top: 17px;
+    top: 15px;
 }
 .modal-login {
     font-size: 13px;
     cursor: pointer;
-    background-color: #DEDEDE;
-    color: #1F262B;
     padding: 0 20px;
     border-radius: 3px;
     line-height: 33px;
@@ -47,7 +43,7 @@
     text-transform: capitalize;
     text-align: center;
     position: relative;
-    top: 17px;
+    top: 15px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -58,6 +54,14 @@
             background-color: $modal-background-dark;
             color: $modal-text-dark;
         }
+    }
+    .modal-join {
+        color: $join-text-dark;
+        background-color: $join-background-dark;
+    }
+    .modal-login {
+        color: $login-text-dark;
+        background-color: $login-background-dark;
     }
     .modal-title {
         color: $body-text-dark;
@@ -75,6 +79,14 @@
             background-color: $modal-background-light;
             color: $modal-text-light;
         }
+    }
+    .modal-join {
+        color: $join-text-dark;
+        background-color: $join-background-light;
+    }
+    .modal-login {
+        color: $login-text-light;
+        background-color: $login-background-light;
     }
     .modal-title {
         color: $body-text-light;

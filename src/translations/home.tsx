@@ -1,5 +1,3 @@
-import { string } from "prop-types";
-
 export const translations: { [key: string]: {
     language: string,
     aboutWorbli: string,
