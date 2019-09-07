@@ -28,6 +28,7 @@ const Router: React.FC = () => {
     language: 'en',
     darkMode: window.matchMedia('(prefers-color-scheme: dark)').matches || false,
     apiUrl: 'http://127.0.0.1:8888',
+    confirmEmail: localStorage.getItem("confirmEmail") || false,
   });
 
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener( "change", (e) => {

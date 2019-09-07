@@ -25,10 +25,11 @@ const Header: React.FC<propsInterface> = (props) => {
         <Link to={{pathname: '/about'}}><div>{txt.aboutWorbli}</div></Link>
         <Link to={{pathname: '/involved'}}><div>{txt.getInvolved}</div></Link>
         <Link to={{pathname: '/progress'}}><div>{txt.progress}</div></Link>
-        {/* <Link to={{pathname: '/who'}}><div>{txt.whoWeAre}</div></Link> */}
-        {/* <div>{txt.portal}</div> */}
-        <div><Modal title='Login'/></div>
-        <div><Modal title='Join'/></div>
+        <div className='loggedOut'>
+          <div><Modal title='join'/></div>
+          <div><Modal title='login'/></div>
+        </div>
+
       </nav>
     </header>
   );

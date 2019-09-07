@@ -1,3 +1,5 @@
+import { string } from "prop-types";
+
 export const translations: { [key: string]: {
     language: string,
     aboutWorbli: string,
@@ -43,6 +45,10 @@ export const translations: { [key: string]: {
     alreadyOnWorbli: string,
     logIn: string,
     fullName: string,
+    pleaseConfirmEmail: string,
+    updateYourEmail: string,
+    or: string,
+    resendConfirmation: string,
   }} = {
   cn: {
     language: 'Chinese',
@@ -89,6 +95,10 @@ export const translations: { [key: string]: {
     alreadyOnWorbli: 'Already on Worbli?',
     logIn: 'Log In.',
     fullName: 'Full Name',
+    pleaseConfirmEmail: 'Please confirm your email address. If you haven\'t received anything you can',
+    updateYourEmail: 'update your email',
+    or: 'or',
+    resendConfirmation: 'resend confirmation',
   },
   en: {
     language: 'English',
@@ -135,5 +145,9 @@ export const translations: { [key: string]: {
     alreadyOnWorbli: 'Already on Worbli?',
     logIn: 'Log In.',
     fullName: 'Full Name',
+    pleaseConfirmEmail: 'Please confirm your email address. If you haven\'t received anything you can',
+    updateYourEmail: 'update your email',
+    or: 'or',
+    resendConfirmation: 'resend confirmation',
   },
 }

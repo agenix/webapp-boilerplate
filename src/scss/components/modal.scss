@@ -21,8 +21,33 @@
         @import 'join.scss';
     }
 }
-.modal-title {
+.modal-join {
+    font-size: 13px;
     cursor: pointer;
+    background-color: #FCEA78;
+    color: #1F262B;
+    padding: 0 20px;
+    border-radius: 3px;
+    line-height: 33px;
+    font-weight: 600;
+    text-transform: capitalize;
+    text-align: center;
+    position: relative;
+    top: 17px;
+}
+.modal-login {
+    font-size: 13px;
+    cursor: pointer;
+    background-color: #DEDEDE;
+    color: #1F262B;
+    padding: 0 20px;
+    border-radius: 3px;
+    line-height: 33px;
+    font-weight: 600;
+    text-transform: capitalize;
+    text-align: center;
+    position: relative;
+    top: 17px;
 }
 
 @media (prefers-color-scheme: dark) {

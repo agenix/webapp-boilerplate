@@ -8,10 +8,24 @@
     .layout {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
-        grid-column-gap: 12px;
-        grid-row-gap: 12px;
         position: relative;
         
+        .email{
+            background-color: #FCEA78;
+            text-align: center;
+            height: 42px;
+            font-size: 1.3rem;
+            color: #161E25;
+            line-height: 42px;
+            span {
+                font-weight: 800;
+            }
+            a {
+                font-weight: 800;
+                text-decoration: none;
+                color: #161E25;
+            }
+        }
         .body {
             position: relative;
             display: block;

@@ -7,7 +7,7 @@ interface propsInterface {
 }
 
 const Modal: React.FC<propsInterface> = (props) => {
-  const [state, setState] = useState({showLogin: props.title === "Join" ? false : true, modalState: true}); 
+  const [state, setState] = useState({showLogin: props.title === "join" ? false : true, modalState: false}); 
   function toggleLogin() {
     setState({...state, showLogin: !state.showLogin});
   }
@@ -16,13 +16,13 @@ const Modal: React.FC<propsInterface> = (props) => {
     setState({...state, modalState: !state.modalState});
     const modal = document.getElementById(`modal-${props.title}`);
     const card = document.getElementById(`card-${props.title}`);
-    if (modal && card && state.modalState === true) {
+    if (modal && card && state.modalState === false) {
       modal.style.display = "flex";
       modal.animate([{backgroundColor: 'rgba(0, 0, 0, 0)'}, {backgroundColor: 'rgba(0, 0, 0, 0.6)'}], {duration: 200, easing: 'ease-in-out', fill: 'forwards'});
       card.animate([{opacity: 0}, {opacity: 1}], {duration: 200, easing: 'ease-in-out', fill: 'forwards'});
       card.animate([{transform: 'translateY(-200px)'}, {transform: 'translateY(0)'}], {duration: 200, easing: 'ease-in-out', fill: 'forwards'});
     }
-    if (modal && card && state.modalState === false) {
+    if (modal && card && state.modalState === true) {
       modal.animate([{backgroundColor: 'rgba(0, 0, 0, 0.6)'}, {backgroundColor: 'rgba(0, 0, 0, 0)'}], {duration: 200, easing: 'ease-in-out', fill: 'forwards'});
       card.animate([{opacity: 1}, {opacity: 0}],{duration: 200, easing: 'ease-in-out', fill: 'forwards'});
       card.animate([{transform: 'translateY(0)'}, {transform: 'translateY(-200px)'}], {duration: 200, easing: 'ease-in-out', fill: 'forwards'});
@@ -39,7 +39,9 @@ const Modal: React.FC<propsInterface> = (props) => {
         : <Join toggleLogin={toggleLogin} toggleModal={toggleModal}/>}
         </div>
       </div>
-      <div onClick={toggleModal} className='modal-title' id={'modal-' + props.title}> {props.title}</div>
+      <div onClick={toggleModal} className={'modal-' + props.title} id={'modal-' + props.title}> 
+      {props.title == 'join' ? 'Join Worbli' : 'Log In'}
+      </div>
     </div>
   );
 }
