@@ -60,7 +60,8 @@ const Join: React.FC<propsInterface> = (props) => {
   }
 
   function validateFullName(fullName: string) {
-    if (fullName && fullName.length > 35) return 'Name is too long' 
+    if (!fullName) return 'Full name is required';
+    if (fullName.length > 35) return 'Full name is too long';
     return '';
   }
 
