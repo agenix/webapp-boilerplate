@@ -47,6 +47,9 @@ export const translations: { [key: string]: {
     updateYourEmail: string,
     or: string,
     resendConfirmation: string,
+    invalidConfirmationCode: string,
+    emailConfirmed: string,
+    resendEmail: string,
   }} = {
   cn: {
     language: 'Chinese',
@@ -97,6 +100,9 @@ export const translations: { [key: string]: {
     updateYourEmail: 'update your email',
     or: 'or',
     resendConfirmation: 'resend confirmation',
+    invalidConfirmationCode: 'Invalid confirmation code!',
+    emailConfirmed: 'Thanks! Your email address has been confirmed.',
+    resendEmail: 'Confirmation email has been resent.',
   },
   en: {
     language: 'English',
@@ -147,5 +153,8 @@ export const translations: { [key: string]: {
     updateYourEmail: 'update your email',
     or: 'or',
     resendConfirmation: 'resend confirmation',
+    invalidConfirmationCode: 'Invalid confirmation code!',
+    emailConfirmed: 'Thanks! Your email address has been confirmed.',
+    resendEmail: 'Confirmation email has been resent.',
   },
 }

@@ -1,13 +1,9 @@
-import React, {useContext} from 'react';
-import Context from './context';
-import {translations} from '../translations/home';
+import React from 'react';
 import { Menu } from './menu';
 import { Header } from './header';
-import {Link} from 'react-router-dom';
+import { Warning } from './warning';
 
 const Layout: React.FC = (props) => {
-  const { global } = useContext(Context) as {global: any; setGlobal: React.Dispatch<React.SetStateAction<any>>};
-  const txt = translations[global.language];
   let menuState = false;
   
   function toggleMenu() {
@@ -43,7 +39,7 @@ const Layout: React.FC = (props) => {
   return (
     <div className='screen'>
       <main className="layout" id="layout">
-        {global.confirmEmail &&<section className='email'>{txt.pleaseConfirmEmail} <Link to={{pathname: '/profile'}}>{txt.updateYourEmail}</Link> {txt.or} <span>{txt.resendConfirmation}</span></section>}
+        <section className='warning'><Warning/></section>
         <section className='menu'><Menu toggleMenu={toggleMenu}/></section>
         <section className='header'><Header toggleMenu={toggleMenu}/></section>
         <section className='cover' id='cover' onClick={toggleMenu}></section>

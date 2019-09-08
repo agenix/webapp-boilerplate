@@ -33,11 +33,10 @@ const Join: React.FC<propsInterface> = (props) => {
           setState({...state, loading: false, emailError: content[0].message, passwordError: ''});
         } else {
           setState({...state, loading: false, emailError: '', passwordError: ''});
-          setGlobal({...global, confirmEmail: true, loggedIn: true, fullName: state.fullName});
-          localStorage.setItem("confirmEmail", 'true');
-          localStorage.setItem("loggedIn", 'true');
+          setGlobal({...global, warning: 'confirm', loggedIn: true, fullName: state.fullName});
+          localStorage.setItem("warning", 'confirm');
           localStorage.setItem("fullName", state.fullName);
-          console.log(content + 'You are logged in now!');
+          localStorage.setItem("jwtToken", content.jwtToken);
         }
       } else {
         setState({...state, emailError: content.message || response.status});
