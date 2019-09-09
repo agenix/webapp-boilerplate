@@ -20,20 +20,18 @@ import Involved from './routes/involved';
 import Progress from './routes/progress';
 import Who from './routes/who';
 import Confirm from './routes/confirm';
-import NotFound from './routes/not-found';
+ import NotFound from './routes/not-found';
 import Context from "./components/context";
 import { Layout } from "./components/layout";
 
 const Router: React.FC = () => {
   let loggedIn = false;
-  const warning = localStorage.getItem("warning") || '';
   if (localStorage.getItem("jwtToken")) loggedIn = true;
-
   const [global, setGlobal] = useState({
     language: 'en',
     darkMode: window.matchMedia('(prefers-color-scheme: dark)').matches || false,
     apiUrl: 'http://127.0.0.1:8888',
-    warning,
+    warning: '',
     loggedIn,
     fullName: localStorage.getItem("fullName") || '',
   });
@@ -68,7 +66,7 @@ const Router: React.FC = () => {
                   <Route exact path = '/involved' component = {Involved} />
                   <Route exact path = '/progress' component = {Progress} />
                   <Route exact path = '/who' component = {Who} />
-                  <Route exact path = '/confirm_email/:confirmationCode' component = {Confirm} />
+                  <Route path = '/confirm_email/:confirmationCode' component = {Confirm} />
                   <Route component = {NotFound}/>
                 </Switch>
               </CSSTransition>

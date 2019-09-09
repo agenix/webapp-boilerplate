@@ -1,23 +1,26 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Menu } from './menu';
 import { Header } from './header';
 import { Warning } from './warning';
 
 const Layout: React.FC = (props) => {
-  let menuState = false;
-  
+  const [state, setState] = useState({menuState: false}); 
+
   function toggleMenu() {
-    menuState = !menuState;
     const layout = document.getElementById('layout');
     const cover = document.getElementById('cover');
 
-    if (layout && cover && menuState === true) {
+    setState({ menuState: !state.menuState});
+
+    if (layout && cover && state.menuState === false ) {
       cover.style.display = "block";
       layout.animate([{transform: 'translateX(0)'}, {transform: 'translateX(80vw)'}], 
       {duration: 200, easing: 'ease-in-out', fill: 'forwards'});
       cover.animate([{opacity: 0}, {opacity: 0.9}], 
       {duration: 200, easing: 'ease-in-out', fill: 'forwards'});
-    } else if (layout && cover && menuState === false) {
+      
+    } 
+    else if (layout && cover && state.menuState === true) {
       layout.animate([{transform: 'translateX(80vw)'}, {transform: 'translateX(0)'}], 
       {duration: 200, easing: 'ease-in-out', fill: 'forwards'});
       cover.animate([{opacity: 0.9}, {opacity: 0}], 
@@ -25,16 +28,10 @@ const Layout: React.FC = (props) => {
       setTimeout(() => { 
         cover.style.display = "none";
        }, 200);
-      
     }
+
   }
 
-  window.addEventListener("resize", () => {
-    const browserWidth = document.documentElement.clientWidth;
-   if(browserWidth >= 800 && menuState === true) {
-    toggleMenu()
-   };
-  });
 
   return (
     <div className='screen'>

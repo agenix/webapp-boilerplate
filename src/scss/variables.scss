@@ -31,7 +31,7 @@ $modal-background-light: #FEFEFE;
 $modal-text-dark: #FEFEFE;
 $modal-text-light: #474D55;
 
-$modal-border-dark: #3080E2;
+$modal-border-dark: #000000;
 $modal-border-light: #FEFEFE;
 
 $text-link-dark: #3080E2;
@@ -62,8 +62,8 @@ $confirm-text-light: #FFFFFF;
 $namePill-text-dark: #FFFFFF;
 $namePill-text-light: #FFFFFF;
 
-$namePill-hover-dark: #000000;
-$namePill-hover-light: #000000;
+$namePill-hover-dark: rgba(0,0,0,1);
+$namePill-hover-light: rgba(0,0,0,1);
 
 $namePill-background-dark: #3080E2;
 $namePill-background-light: #78C8FD;

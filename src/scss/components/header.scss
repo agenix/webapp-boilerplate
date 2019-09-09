@@ -40,6 +40,8 @@ header {
                 height: 36px;
                 position: relative;
                 top: 15px;
+                background: rgba(0,0,0,0);
+                transition: background .4s ease-in-out;
                 .initial {
                     border-radius: 50%;
                     height: 28px;
@@ -58,7 +60,7 @@ header {
                 }
             }
             .namePill:hover {
-                background-color: black;
+                background: black;
             }
         }
     }
@@ -83,14 +85,14 @@ header {
                 .namePill {
                     .initial {
                         color: $namePill-text-dark;
-                        background-color: $namePill-background-dark;
+                        background: $namePill-background-dark;
                     }
                     .name {
                         color: $namePill-text-dark;
                     }
                 }
                 .namePull:hover {
-                    background-color: $namePill-hover-dark;
+                    background: $namePill-hover-dark;
                 }
             }
             a {

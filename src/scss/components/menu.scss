@@ -2,7 +2,7 @@
     padding: 24px;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    grid-gap: 12px;
+    grid-gap: 8px;
     margin-top: 40px;
     
     .close {
@@ -20,14 +20,15 @@
     }
     .title {
         font-family: Gilroy;
-        padding-top: 24px;
-        font-size: 2.4rem;
+        font-size: 1.4rem;
+        margin-top: 12px;
     }
     
     .item a {
-        font-size: 16px;
+        font-size: 14px;
         cursor: pointer;
         text-decoration: none;
+        margin-left: 12px;
     }
     
     .item a:hover {

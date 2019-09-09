@@ -67,18 +67,22 @@ const Join: React.FC<propsInterface> = (props) => {
 
   function validate(email: string, password: string, fullName: string) {
     const emailInput = document.getElementById("email");
-    const passwordInput = document.getElementById("password");
+    const passwordInput = document.getElementById("newPassword");
     const fullNameInput = document.getElementById("fullName");
     const emailError = validateEmail(email);
     const passwordError = validatePassword(password);
     const fullNameError = validateFullName(fullName);
     setState({...state, emailError, passwordError, fullNameError});
+    
     if (emailError && emailInput) emailInput.classList.add("error")
     else if (emailInput) emailInput.classList.remove("error")
+    
     if (passwordError && passwordInput) passwordInput.classList.add("error")
     else if (passwordInput) passwordInput.classList.remove("error")
+    
     if (fullNameError && fullNameInput) fullNameInput.classList.add("error")
     else if (fullNameInput) fullNameInput.classList.remove("error")
+    
     if (emailError || passwordError || fullNameError) return false
     else return true
   }
@@ -97,7 +101,7 @@ const Join: React.FC<propsInterface> = (props) => {
           placeholder="Full name" 
           onChange={formValue}
         ></input>
-        {state.emailError &&<Error message={state.emailError}/>}
+        {state.fullNameError &&<Error message={state.fullNameError}/>}
       </span>
       <span>
         <label className="label">{txt.email}</label>
