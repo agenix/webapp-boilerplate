@@ -97,7 +97,7 @@ const Warning: React.FC = () => {
 
   return (
     <section className='warning-bar' ref={warningBar}>
-      <div className='confirm' ref={confirm}> {txt.pleaseConfirmEmail} <Link to={{pathname: '/profile'}}>{txt.updateYourEmail}</Link> {txt.or} <span onClick={resendConfirmation}>{txt.resendConfirmation}</span></div>
+      <div className='confirm' ref={confirm}> {txt.pleaseConfirmEmail} <Link to={{pathname: '/my/profile'}}>{txt.updateYourEmail}</Link> {txt.or} <span onClick={resendConfirmation}>{txt.resendConfirmation}</span></div>
       <div className='invalid' ref={invalid}> {txt.invalidConfirmationCode}</div>
       <div className='confirmed' ref={confirmed}> {txt.emailConfirmed} </div>
       <div className='resend' ref={resend}> {txt.resendEmail}</div>

@@ -48,21 +48,21 @@ const Join: React.FC<propsInterface> = (props) => {
 
   function validateEmail(email: string) {
     const emailRegex = /\S+@\S+\.\S+/;
-    if (!email) return 'Email is required';
-    if (!emailRegex.test(email)) return 'Email is invalid'; 
+    if (!email) return txt.emailIsRequired;
+    if (!emailRegex.test(email)) return txt.emailIsInvalid; 
     return ''; 
   }
 
   function validatePassword(password: string) {
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?:.{6,})$/;
-    if (!password) return 'Password is required';
-    if (!passwordRegex.test(password)) return 'Passwords should be 6 characters or more and have one or more upper case characters';
+    if (!password) return txt.passwordIsRequired;
+    if (!passwordRegex.test(password)) return txt.passwordLength;
     return '';
   }
 
   function validateFullName(fullName: string) {
-    if (!fullName) return 'Full name is required';
-    if (fullName.length > 35) return 'Full name is too long';
+    if (!fullName) return txt.fullNameIsRequired;
+    if (fullName.length > 35) return txt.fullNameIsTooLong;
     return '';
   }
 
@@ -110,7 +110,7 @@ const Join: React.FC<propsInterface> = (props) => {
           type="input" 
           className="input-text" 
           name="fullName" 
-          placeholder="Full name" 
+          placeholder={txt.fullName}
           onChange={formValue}
         ></input>
         {state.fullNameError &&<Error message={state.fullNameError}/>}
@@ -122,7 +122,7 @@ const Join: React.FC<propsInterface> = (props) => {
           type="input" 
           className="input-text" 
           name="email" 
-          placeholder="Email address" 
+          placeholder={txt.emailAddress}
           onChange={formValue}
         ></input>
         {state.emailError &&<Error message={state.emailError}/>}
@@ -134,7 +134,7 @@ const Join: React.FC<propsInterface> = (props) => {
           type="password" 
           className="input-text" 
           name="newPassword" 
-          placeholder="Your password" 
+          placeholder={txt.createAPassword}
           onChange={formValue}
         ></input>
         {state.passwordError && <Error message={state.passwordError}/>}
@@ -143,7 +143,7 @@ const Join: React.FC<propsInterface> = (props) => {
         {!state.loading ? 'Join Now!' : <img src={loading} alt="loading" className='loading'/>}
       </button>
       <p className='small-text'>{txt.alreadyOnWorbli} <span onClick={props.toggleLogin}>{txt.logIn}</span></p>
-      <p className='small-text'>By joining, you agree to our <span onClick={goToTerms} id='modal-join'>Temrs of Service</span> and <span onClick={goToPrivacy} id='modal-join'>Privacy Policy</span></p>
+      <p className='small-text'>{txt.byJoiningYouAgreeToOur}<span onClick={goToTerms} id='modal-join'>{txt.temrsOfService}</span> {txt.and} <span onClick={goToPrivacy} id='modal-join'>{txt.privacyPolicy}</span></p>
       <Link id='goToTerms' to={{pathname: '/terms'}}/>
       <Link id='goToPrivacy' to={{pathname: '/privacy'}}/>
     </div>

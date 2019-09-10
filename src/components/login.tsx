@@ -47,15 +47,15 @@ const Login: React.FC<propsInterface> = (props) => {
 
   function validateEmail(email: string) {
     const emailRegex = /\S+@\S+\.\S+/;
-    if (!email) return 'Email is required';
-    if (!emailRegex.test(email)) return 'Email is invalid'; 
+    if (!email) return txt.emailIsRequired;
+    if (!emailRegex.test(email)) return txt.emailIsInvalid; 
     return ''; 
   }
 
   function validatePassword(password: string) {
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?:.{6,})$/;
-    if (!password) return 'Password is required';
-    if (!passwordRegex.test(password)) return 'Passwords should be 6 characters or more and have one or more upper case characters';
+    if (!password) return txt.passwordIsRequired;
+    if (!passwordRegex.test(password)) return txt.passwordLength;
     return '';
   }
 
@@ -87,7 +87,7 @@ const Login: React.FC<propsInterface> = (props) => {
           type="input" 
           className="input-text" 
           name="email" 
-          placeholder="Email address" 
+          placeholder={txt.emailAddress}
           onChange={formValue}
         ></input>
         {state.emailError &&<Error message={state.emailError}/>}
@@ -99,7 +99,7 @@ const Login: React.FC<propsInterface> = (props) => {
           type="password" 
           className="input-text" 
           name="password" 
-          placeholder="Create a password" 
+          placeholder={txt.yourPassword}
           onChange={formValue}
         ></input>
         {state.passwordError && <Error message={state.passwordError}/>}
@@ -107,7 +107,7 @@ const Login: React.FC<propsInterface> = (props) => {
       <button className="btn-join" onClick={submitForm}>
         {!state.loading ? 'Join Now!' : <img src={loading} alt="loading" className='loading'/>}
       </button>
-      <p className='small-text'>New to Worbli? <span onClick={props.toggleLogin}> Join Worbli</span></p>
+      <p className='small-text'>{txt.newToWorbli} <span onClick={props.toggleLogin}> {txt.joinWorbli}</span></p>
     </div>
   );
 }
