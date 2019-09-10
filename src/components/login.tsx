@@ -10,7 +10,7 @@ interface propsInterface {
 }
 
 const Login: React.FC<propsInterface> = (props) => {
-  const { global } = useContext(Context) as {global: any; setGlobal: React.Dispatch<React.SetStateAction<any>>};
+  const { global, setGlobal } = useContext(Context) as {global: any; setGlobal: React.Dispatch<React.SetStateAction<any>>};
   const [state, setState] = useState({loading: false, email: '', password: '', emailError: '', passwordError: ''});
   const formValue = (event: React.ChangeEvent<HTMLInputElement>) => {setState({...state, [event.target.name]: event.target.value})}
   const txt = translations[global.language];
@@ -19,7 +19,7 @@ const Login: React.FC<propsInterface> = (props) => {
     const valid = validate(state.email, state.password);
     if (valid) {
       setState({...state, loading: true, emailError:'', passwordError: ''});
-      const response = await fetch(`${global.apiUrl}/user/register`, {
+      const response = await fetch(`${global.apiUrl}/user/login`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -32,11 +32,14 @@ const Login: React.FC<propsInterface> = (props) => {
         if (Array.isArray(content)) {
           setState({...state, loading: false, emailError: content[0].message, passwordError: ''});
         } else {
+          if (!content.emailConfirmed) localStorage.setItem('warning', 'confirm');
+          localStorage.setItem('jwtToken', content.jwtToken);
+          localStorage.setItem('fullName', content.fullName);
           setState({...state, loading: false, emailError: '', passwordError: ''});
-          console.log(content);
+          setGlobal({...global, warning: 'confirm', loggedIn: true, fullName: content.fullName});
         }
       } else {
-        setState({...state, emailError: content.message || response.status});
+        setState({...state, emailError: content.message || content[0].message});
       }
     };
   };
@@ -57,15 +60,18 @@ const Login: React.FC<propsInterface> = (props) => {
   }
 
   function validate(email: string, password: string) {
-    const emailInput = document.getElementById("email");
-    const passwordInput = document.getElementById("password");
+    const emailInput = document.getElementById("loginEmail");
+    const passwordInput = document.getElementById("loginPassword");
     const emailError = validateEmail(email);
     const passwordError = validatePassword(password);
     setState({...state, emailError, passwordError});
+    
     if (emailError && emailInput) emailInput.classList.add("error")
     else if (emailInput) emailInput.classList.remove("error")
+    
     if (passwordError && passwordInput) passwordInput.classList.add("error")
     else if (passwordInput) passwordInput.classList.remove("error")
+    
     if (emailError || passwordError) return false
     else return true
   }
@@ -77,7 +83,7 @@ const Login: React.FC<propsInterface> = (props) => {
       <span>
         <label className="label">{txt.email}</label>
         <input
-          id="email"
+          id="loginEmail"
           type="input" 
           className="input-text" 
           name="email" 
@@ -89,7 +95,7 @@ const Login: React.FC<propsInterface> = (props) => {
       <span>
         <label className="label">{txt.password}</label>
         <input 
-          id="password"
+          id="loginPassword"
           type="password" 
           className="input-text" 
           name="password" 

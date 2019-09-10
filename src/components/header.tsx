@@ -35,7 +35,7 @@ const Header: React.FC<propsInterface> = (props) => {
           <div><Modal title='login'/></div>
         </div>}
 
-        {global.loggedIn && <Link to={{pathname: '/profile'}}><div className='loggedIn'>
+        {global.loggedIn && <Link to={{pathname: '/my/profile'}}><div className='loggedIn'>
           <div className='namePill'>
             <div className='initial'>{global.fullName.charAt(0).toUpperCase()}</div>
             <div className='name'>{global.fullName.split(' ')[0]}</div>

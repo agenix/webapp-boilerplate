@@ -3,6 +3,7 @@ import Context from './context';
 import {translations} from '../translations/home';
 import loading from '../images/loading.svg';
 import {Error} from './error'
+import {Link} from 'react-router-dom';
 
 interface propsInterface {
   toggleModal: (event: any) => void
@@ -87,6 +88,17 @@ const Join: React.FC<propsInterface> = (props) => {
     else return true
   }
 
+  function goToTerms (e: any) {
+    props.toggleModal(e);
+    const goToTerms = document.getElementById('goToTerms');
+    if (goToTerms) goToTerms.click();
+  }
+  function goToPrivacy (e: any) {
+    props.toggleModal(e);
+    const goToPrivacy = document.getElementById('goToPrivacy');
+    if (goToPrivacy) goToPrivacy.click();
+  }
+
   return (
     <div className='join'>
       <div className='title'>{txt.joinWorbli}</div> 
@@ -131,6 +143,9 @@ const Join: React.FC<propsInterface> = (props) => {
         {!state.loading ? 'Join Now!' : <img src={loading} alt="loading" className='loading'/>}
       </button>
       <p className='small-text'>{txt.alreadyOnWorbli} <span onClick={props.toggleLogin}>{txt.logIn}</span></p>
+      <p className='small-text'>By joining, you agree to our <span onClick={goToTerms} id='modal-join'>Temrs of Service</span> and <span onClick={goToPrivacy} id='modal-join'>Privacy Policy</span></p>
+      <Link id='goToTerms' to={{pathname: '/terms'}}/>
+      <Link id='goToPrivacy' to={{pathname: '/privacy'}}/>
     </div>
   );
 }

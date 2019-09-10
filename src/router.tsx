@@ -20,13 +20,17 @@ import Involved from './routes/involved';
 import Progress from './routes/progress';
 import Who from './routes/who';
 import Confirm from './routes/confirm';
- import NotFound from './routes/not-found';
+import Terms from './routes/terms';
+import Privacy from './routes/privacy';
+import Profile from './routes/profile';
+import NotFound from './routes/not-found';
 import Context from "./components/context";
 import { Layout } from "./components/layout";
 
 const Router: React.FC = () => {
   let loggedIn = false;
   if (localStorage.getItem("jwtToken")) loggedIn = true;
+
   const [global, setGlobal] = useState({
     language: 'en',
     darkMode: window.matchMedia('(prefers-color-scheme: dark)').matches || false,
@@ -65,7 +69,10 @@ const Router: React.FC = () => {
                   <Route exact path = '/about' component = {About} />
                   <Route exact path = '/involved' component = {Involved} />
                   <Route exact path = '/progress' component = {Progress} />
+                  <Route exact path = '/my/profile' component = {Profile} />
                   <Route exact path = '/who' component = {Who} />
+                  <Route exact path = '/terms' component = {Terms} />
+                  <Route exact path = '/privacy' component = {Privacy} />
                   <Route path = '/confirm_email/:confirmationCode' component = {Confirm} />
                   <Route component = {NotFound}/>
                 </Switch>
