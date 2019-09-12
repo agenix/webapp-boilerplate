@@ -22,7 +22,13 @@ import Who from './routes/who';
 import Confirm from './routes/confirm';
 import Terms from './routes/terms';
 import Privacy from './routes/privacy';
-import Profile from './routes/profile';
+import Accounts from './routes/my/accounts';
+import Claims from './routes/my/claims';
+import Identity from './routes/my/identity';
+import Logout from './routes/my/logout';
+import Password from './routes/my/password';
+import Profile from './routes/my/profile';
+import Settings from './routes/my/settings';
 import NotFound from './routes/not-found';
 import Context from "./components/context";
 import { Layout } from "./components/layout";
@@ -69,10 +75,16 @@ const Router: React.FC = () => {
                     <Route exact path = '/about' component = {About} />
                     <Route exact path = '/involved' component = {Involved} />
                     <Route exact path = '/progress' component = {Progress} />
-                    <Route exact path = '/my/profile' component = {Profile} />
                     <Route exact path = '/who' component = {Who} />
                     <Route exact path = '/terms' component = {Terms} />
                     <Route exact path = '/privacy' component = {Privacy} />
+                    <Route exact path = '/my/accounts' component = {Accounts} />
+                    <Route exact path = '/my/claims' component = {Claims} />
+                    <Route exact path = '/my/identity' component = {Identity} />
+                    <Route exact path = '/my/logout' component = {Logout} />
+                    <Route exact path = '/my/password' component = {Password} />
+                    <Route exact path = '/my/profile' component = {Profile} />
+                    <Route exact path = '/my/settings' component = {Settings} />
                     <Route path = '/confirm_email/:confirmationCode' component = {Confirm} />
                     <Route component = {NotFound}/>
                   </Switch>

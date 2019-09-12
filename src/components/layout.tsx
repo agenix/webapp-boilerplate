@@ -3,7 +3,9 @@ import Context from './context';
 import { Menu } from './menu';
 import { Header } from './header';
 import { Warning } from './warning';
-import { Footer } from '../components/footer';
+import { Footer } from './footer';
+import { SideMenu } from './sideMenu';
+
 
 interface propsInterface {
   location: any; 
@@ -13,7 +15,23 @@ const Layout: React.FC<propsInterface> = (props) => {
   const { global } = useContext(Context) as {global: any};
   const [state, setState] = useState({menuState: false}); 
 
+
+
   useEffect(() => {
+
+    const currentFolder = props.location.pathname.split('/')[1];
+    const sidenav = document.getElementById('sidenav');
+    if (currentFolder === 'my') {
+      if (sidenav) sidenav.animate([{opacity: 0}, {opacity: 0.9}], 
+        {duration: 200, easing: 'ease-in-out', fill: 'forwards'});
+        setTimeout(() => { 
+          if (sidenav) sidenav.style.display = 'block';
+         }, 200);
+    } else {
+      console.log('hide menu')
+      if (sidenav) sidenav.style.display = 'none';
+    }
+    
     const screen = document.getElementById('layout-screen');
     const fixed = document.getElementById('layout-fixed');
     function imScrolling() {
@@ -21,7 +39,7 @@ const Layout: React.FC<propsInterface> = (props) => {
         const scrollPosition = screen.scrollTop / 200;
         const rounded = Math.round( scrollPosition * 10 ) / 10
         if (scrollPosition < 100 ) {
-          if (fixed) fixed.style["boxShadow"] = `0 0 4px rgba(0,0,0,${scrollPosition*0.5})`;
+          if (fixed) fixed.style["boxShadow"] = `0 0 4px rgba(0,0,0,${rounded})`;
         }
       }
     }
@@ -102,19 +120,8 @@ const Layout: React.FC<propsInterface> = (props) => {
         <section className='cover' id='layout-cover' onClick={toggleMenu}></section>
         
         <section className='body' id='layout-body'>
-          <div>
-            <ul>
-              <li>Identity</li>
-              <li>Accounts</li>
-              <li>Claims</li>
-              <hr/>
-              <li>Profile</li>
-              <li>Password</li>
-              <li>Settings</li>
-              <li>Sign Out</li>
-            </ul>
-          </div>
-         {props.children}
+          <div className='sidenav' id='sidenav'><SideMenu /></div>
+          {props.children}
         </section>
         
         {!global.loggedIn &&
