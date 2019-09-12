@@ -1,6 +1,10 @@
-.sidenav a {
+.sidenav {
+    position: fixed;
+    top: 100px;
+    a {
     color: white;
     text-decoration: none;
     padding: 0;
     list-style-type: none;
+}
 }

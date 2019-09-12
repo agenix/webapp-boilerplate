@@ -18,10 +18,10 @@ const Layout: React.FC<propsInterface> = (props) => {
 
 
   useEffect(() => {
-
     const currentFolder = props.location.pathname.split('/')[1];
     const sidenav = document.getElementById('sidenav');
     if (currentFolder === 'my') {
+      // make a history array of 2 items if the prev was not /my then animate, otherwise display block
       if (sidenav) sidenav.animate([{opacity: 0}, {opacity: 0.9}], 
         {duration: 200, easing: 'ease-in-out', fill: 'forwards'});
         setTimeout(() => { 
