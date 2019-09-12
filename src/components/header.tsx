@@ -1,8 +1,9 @@
 import React, {useContext} from 'react';
 import Context from './context';
-import {translations} from '../translations/home';
-import {Link} from 'react-router-dom';
-import {Modal} from '../components/modal';
+import { translations } from '../translations/home';
+import { Link } from 'react-router-dom';
+import { Modal } from '../components/modal';
+
 
 import logoDark from '../images/logoDark.svg';
 import logoLight from '../images/logoLight.svg';
@@ -19,6 +20,7 @@ const Header: React.FC<propsInterface> = (props) => {
 
   return (
     <header>
+      
       <nav className="menuNav" onClick={props.toggleMenu}><img src={global.darkMode ? menuDark : menuLight} alt={txt.menu}/></nav>
       <Link to={{pathname: '/'}}>
         <div className="menuLogo">

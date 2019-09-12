@@ -31,13 +31,13 @@ const Warning: React.FC = () => {
     if (confirm.current && invalid.current && confirmed.current && warningBar.current) {
       if (global.warning === 'confirm') {
         hideAll();
-        warningBar.current.style.display = "block";
+        warningBar.current.style.display = "flex";
         confirm.current.style.display = "block";
         confirm.current.animate([{opacity: 0}, {opacity: 1}], {duration: 500, easing: 'ease-in-out', fill: 'forwards'});
       } 
       else if (global.warning === 'invalid') {
         hideAll();
-        warningBar.current.style.display = "block";
+        warningBar.current.style.display = "flex";
         invalid.current.style.display = "block";
         invalid.current.animate([{opacity: 0}, {opacity: 1}], {duration: 500, easing: 'ease-in-out', fill: 'forwards'});
         localStorage.setItem("warning", 'confirm');
@@ -46,7 +46,7 @@ const Warning: React.FC = () => {
         }, 3000);
       } 
       else if (global.warning === 'confirmed') {
-        warningBar.current.style.display = "block";
+        warningBar.current.style.display = "flex";
         confirmed.current.style.display = "block";
         confirmed.current.animate([{opacity: 0}, {opacity: 1}], {duration: 500, easing: 'ease-in-out', fill: 'forwards'});
         localStorage.removeItem('warning');

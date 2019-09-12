@@ -12,11 +12,18 @@ const Footer: React.FC = () => {
   return (
     <footer>
       <div className='area'>
-        <div className='title'>{txt.contactUs}</div>
-        <div>{txt.telegram}</div>
-        <div>{txt.email}</div>
-        <div className='fill'>&nbsp;</div>
-        <div className='fill'>&nbsp;</div>
+        <div><Link to={{pathname: '/'}}><div className="footerLogo"><img src={global.darkMode ? logoDark : logoLight} alt={txt.worbliLogo}/></div></Link></div>
+        <div>{txt.termsAndConditions}</div>
+        <div>{txt.privacyPolicy}</div>
+        <div className='copyright'>{txt.copyright}</div>
+        <div>&nbsp;</div>
+      </div>
+      <div className='area'>
+        <div className='title'>{txt.quickLinks}</div>
+        <div>{txt.blockExplorer}</div>
+        <div>{txt.exchanges}</div>
+        <div>{txt.makeReport}</div>
+        <div>{txt.blockProducerSheet}</div>
       </div>
       <div className='area'>
         <div className='title'>{txt.followUs}</div>
@@ -26,20 +33,11 @@ const Footer: React.FC = () => {
         <div>{txt.youtube}</div>
       </div>
       <div className='area'>
-        <div className='title'>{txt.quickLinks}</div>
-        <div>{txt.blockExplorer}</div>
-        <div>{txt.exchanges}</div>
-        <div>{txt.makeReport}</div>
-        <div>{txt.blockProducerSheet}</div>
-      </div>
-      <div className='bigarea'>
-        <div className="span-col-4"><Link to={{pathname: '/'}}><div className="footerLogo"><img src={global.darkMode ? logoDark : logoLight} alt={txt.worbliLogo}/></div></Link></div>
-        <div>{txt.termsAndConditions}</div>
-        <div>{txt.privacyPolicy}</div>
-        <div>{txt.sitemap}</div>
-        <div>{txt.accessibility}</div>
-        <div className="span-col-4">{txt.copyright}</div>
-        <div>&nbsp;</div>
+        <div className='title'>{txt.contactUs}</div>
+        <div>{txt.telegram}</div>
+        <div>{txt.email}</div>
+        <div className='fill'>&nbsp;</div>
+        <div className='fill'>&nbsp;</div>
       </div>
     </footer>
   );

@@ -6,6 +6,7 @@
     position: fixed;
     left: 0;
     right: 0;
+    top:0;
     display: none;
     align-items: center;
     justify-content: center;
@@ -13,6 +14,9 @@
     cursor: pointer;
     
     .card {
+        border: 1px solid $modal-border-light;
+        background-color: $modal-background-light;
+        color: $modal-text-light;
         width: 400px;
         border-radius: 10px;
         opacity: 0;
@@ -21,7 +25,15 @@
         @import 'join.scss';
     }
 }
+.modal-title {
+    color: $body-text-light;
+}
+.modal-title:hover{
+    color: $link-text-light
+}
 .modal-join {
+    color: $join-text-light;
+    background-color: $join-background-light;
     font-size: 13px;
     cursor: pointer;
     padding: 0 20px;
@@ -34,6 +46,8 @@
     top: 15px;
 }
 .modal-login {
+    color: $login-text-light;
+    background-color: $login-background-light;
     font-size: 13px;
     cursor: pointer;
     padding: 0 20px;
@@ -81,7 +95,7 @@
         }
     }
     .modal-join {
-        color: $join-text-dark;
+        color: $join-text-light;
         background-color: $join-background-light;
     }
     .modal-login {

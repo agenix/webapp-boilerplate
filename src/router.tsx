@@ -47,39 +47,39 @@ const Router: React.FC = () => {
   return (    
     <Context.Provider value={{ global, setGlobal }}>
         <BrowserRouter>
-        <Layout>
           <Route render={({location}) => (
-            <TransitionGroup>
-              <CSSTransition timeout={450} classNames='fade' key={location.key}>
-                <Switch location={location}>
-                  <Route exact path = '/' component = {Home} />
-                  <Route exact path = '/direction' component = {Direction} />
-                  <Route exact path = '/differences' component = {Differences} />
-                  <Route exact path = '/compliance' component = {Compliance} />
-                  <Route exact path = '/launch' component = {Launch} />
-                  <Route exact path = '/partner' component = {Partner} />
-                  <Route exact path = '/account' component = {Account} />
-                  <Route exact path = '/updates' component = {Updates} />
-                  <Route exact path = '/launches' component = {Launches} />
-                  <Route exact path = '/technical' component = {Technical} />
-                  <Route exact path = '/team' component = {Team} />
-                  <Route exact path = '/foundation' component = {Foundation} />
-                  <Route exact path = '/press' component = {Press} />
-                  <Route exact path = '/contact' component = {Contact} />
-                  <Route exact path = '/about' component = {About} />
-                  <Route exact path = '/involved' component = {Involved} />
-                  <Route exact path = '/progress' component = {Progress} />
-                  <Route exact path = '/my/profile' component = {Profile} />
-                  <Route exact path = '/who' component = {Who} />
-                  <Route exact path = '/terms' component = {Terms} />
-                  <Route exact path = '/privacy' component = {Privacy} />
-                  <Route path = '/confirm_email/:confirmationCode' component = {Confirm} />
-                  <Route component = {NotFound}/>
-                </Switch>
-              </CSSTransition>
-            </TransitionGroup>
+            <Layout location={location}>
+              <TransitionGroup>
+                <CSSTransition timeout={450} classNames='fade' key={location.key}>
+                  <Switch location={location}>
+                    <Route exact path = '/' component = {Home} />
+                    <Route exact path = '/direction' component = {Direction} />
+                    <Route exact path = '/differences' component = {Differences} />
+                    <Route exact path = '/compliance' component = {Compliance} />
+                    <Route exact path = '/launch' component = {Launch} />
+                    <Route exact path = '/partner' component = {Partner} />
+                    <Route exact path = '/account' component = {Account} />
+                    <Route exact path = '/updates' component = {Updates} />
+                    <Route exact path = '/launches' component = {Launches} />
+                    <Route exact path = '/technical' component = {Technical} />
+                    <Route exact path = '/team' component = {Team} />
+                    <Route exact path = '/foundation' component = {Foundation} />
+                    <Route exact path = '/press' component = {Press} />
+                    <Route exact path = '/contact' component = {Contact} />
+                    <Route exact path = '/about' component = {About} />
+                    <Route exact path = '/involved' component = {Involved} />
+                    <Route exact path = '/progress' component = {Progress} />
+                    <Route exact path = '/my/profile' component = {Profile} />
+                    <Route exact path = '/who' component = {Who} />
+                    <Route exact path = '/terms' component = {Terms} />
+                    <Route exact path = '/privacy' component = {Privacy} />
+                    <Route path = '/confirm_email/:confirmationCode' component = {Confirm} />
+                    <Route component = {NotFound}/>
+                  </Switch>
+                </CSSTransition>
+              </TransitionGroup>
+            </Layout>
           )} />
-          </Layout>
         </BrowserRouter>
       
     </Context.Provider>

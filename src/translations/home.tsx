@@ -1,5 +1,3 @@
-import { string } from "prop-types"
-
 export const translations: { [key: string]: {
     language: string,
     aboutWorbli: string,
@@ -36,8 +34,6 @@ export const translations: { [key: string]: {
     blockProducerSheet: string,
     termsAndConditions: string,
     privacyPolicy: string,
-    sitemap: string,
-    accessibility: string,
     copyright: string,
     joinWorbli: string,
     worbliIs: string,
@@ -102,9 +98,7 @@ export const translations: { [key: string]: {
     blockProducerSheet: 'BP Cheat Sheet',
     termsAndConditions: 'Terms & Conditions',
     privacyPolicy: 'Privacy Policy',
-    sitemap: 'Sitemap',
-    accessibility: 'Accessibility',
-    copyright: 'Ⓒ Worbli LLC 2019',
+    copyright: 'Ⓒ Worbli LLC 2019. All rights reserved.',
     joinWorbli: 'Join Worbli',
     worbliIs: 'Worbli is the place to discover amazing dApps curated by our global community.',
     password: 'Password',
@@ -168,9 +162,7 @@ export const translations: { [key: string]: {
     blockProducerSheet: 'BP Cheat Sheet',
     termsAndConditions: 'Terms & Conditions',
     privacyPolicy: 'Privacy Policy',
-    sitemap: 'Sitemap',
-    accessibility: 'Accessibility',
-    copyright: 'Ⓒ Worbli LLC 2019',
+    copyright: 'Ⓒ Worbli LLC 2019. All rights reserved.',
     joinWorbli: 'Join Worbli',
     worbliIs: 'Worbli is the place to discover amazing dApps curated by our global community.',
     password: 'Password',

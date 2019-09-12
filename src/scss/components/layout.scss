@@ -9,55 +9,84 @@
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         position: relative;
-        
+
+        .fixed {
+            background-color: $background-light;
+            .header {
+                @import 'header.scss';
+            }
+            .warning {
+                @import 'warning.scss';
+            }
+        }
+
         .body {
             position: relative;
-            display: block;
+            display: grid;
+            padding-top: 0px;
+            margin: 24px auto;
+            max-width: 1150px;
+            width: 100%;
+            grid-template-columns:  200px auto;
+            grid-gap: 10px;
+            padding: 0 24px;
             .page {
                 position: absolute;
-                left: 0;
-                right: 0;
                 display: block;
             }
         }
-        .warning {
-            @import 'warning.scss';
+        .header {
+            border-bottom: 1px solid $top-border-light;
         }
         .cover {
+            background-color: $background-light;
             display: none;
             cursor: pointer;
             z-index: 9999;
             width: 100vw;
-            height: 100vh;
+            height: calc(10px + 100vh);
             opacity: 0;
             position: absolute;
+            box-shadow: inset 0 0 5px 3px rgba(0,0,0,0.70);
+            top: -5px;
             @import 'menu.scss';
+
+        }
+        .email {
+            background-color: $confirm-background-light;
+            color: $confirm-text-light;
+            a {
+                color: $confirm-text-light;
+            }
         }
         .menu {
+            background-color: $menu-background-light;
+            border-left: 1px solid $top-border-light;
             width: 80vw;
             height: 100vh;
             left: -80vw;
             position: absolute;
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
+            
             @import 'menu.scss';
         }
-
-        .header {
-            @import 'header.scss';
-        }
-
-        .footer{
+        .footer {
+            border-top: 1px solid $top-border-light;
+            border-bottom: 50px solid $footer-border-lihgt;
+            display: none;
+            position: relative;
             @import 'footer.scss';
         }
-
     }
-
 }
 
 @media (prefers-color-scheme: dark) {
     .screen {
         .layout{
+            .fixed {
+                background-color: $background-dark;
+            }
             .menu {
                 background-color: $menu-background-dark;
                 border-left: 1px solid $top-border-dark;
@@ -87,6 +116,9 @@
 @media (prefers-color-scheme: light) {
     .screen {
         .layout{
+            .fixed {
+                background-color: $background-light;
+            }
             .menu {
                 background-color: $menu-background-light;
                 border-left: 1px solid $top-border-light;
@@ -107,6 +139,25 @@
                 a {
                     color: $confirm-text-light;
                 }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .screen {
+        .layout{
+            .fixed {
+                position: fixed;
+                left: 0;
+                right: 0;
+                z-index: 99;
+            }
+            .footer {
+                display: block;
+            }
+            .body {
+                padding-top: 65px;
             }
         }
     }
