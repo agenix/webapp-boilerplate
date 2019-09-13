@@ -33,7 +33,7 @@
             content: '';
             height: 12px;
             width: 12px;
-            border: 1px solid #3080E2;
+            border: 1px solid #9B9B9B;
             border-radius: 50%;
             display: block;
             position: relative;
@@ -48,17 +48,18 @@
             content: '';
             height: 12px;
             width: 12px;
-            background-color: #3080E2;
+            border: 1px solid #3080E2;
             border-radius: 50%;
             display: block;
-            border: 1px solid transparent;
         }
         .nav-selected {
             background-color: #21282D;
             color: #3080E2;
+            
         }
         .nav-selected::before {
             background-color: #3080E2;
+            border: 1px solid transparent;
         }
     }
 
