@@ -35,6 +35,7 @@
         }
     }
     .title {
+        color: $h1-text-dark;
         font-family: Gilroy;
         font-size: 24px;
     }
@@ -80,6 +81,9 @@
 @media (prefers-color-scheme: dark) {
 
     .join {
+        .title {
+            color: $h1-text-dark;
+        }
         .input-text {
             border: 1px solid $input-border-dark;
             color: $input-text-dark;
@@ -100,6 +104,9 @@
 @media (prefers-color-scheme: light) {
 
     .join {
+        .title {
+            color: $h1-text-light;
+        }
         .input-text {
             border: 1px solid $input-border-light;
             color: $input-text-light;

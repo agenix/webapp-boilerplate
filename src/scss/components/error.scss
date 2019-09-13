@@ -36,6 +36,7 @@ small::before {
         color: $error-text-dark;
     };
     small::before {
+        background: $error-background-dark;
         border-right-color: $error-background-dark;
     }
 }
@@ -46,6 +47,7 @@ small::before {
         color: $error-text-light;
     };
     small::before {
+        background: $error-background-light;
         border-right-color: $error-background-light;
     }
 }
