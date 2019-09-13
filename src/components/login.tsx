@@ -16,8 +16,8 @@ const Login: React.FC<propsInterface> = (props) => {
   const txt = translations[global.language];
 
   useEffect(() => {
-    const emailInput = document.getElementById("loginEmail");
-    if(emailInput) emailInput.focus()
+    // const emailInput = document.getElementById("loginEmail");
+    // if(emailInput) emailInput.focus()
   }, [])
 
   async function submitForm() {

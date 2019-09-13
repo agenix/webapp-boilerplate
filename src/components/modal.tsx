@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Join} from './join';
 import {Login} from './login';
 
@@ -11,6 +11,18 @@ const Modal: React.FC<propsInterface> = (props) => {
   function toggleLogin() {
     setState({...state, showLogin: !state.showLogin});
   }
+
+  useEffect(() => {
+    if(state.showLogin === false) {
+      const fullNameInput = document.getElementById("fullName");
+      if(fullNameInput) fullNameInput.focus();
+    } else if (state.showLogin === true) {
+      const emailInput = document.getElementById("loginEmail");
+      if(emailInput) emailInput.focus()
+    }
+  },[state])
+
+
   function toggleModal(event: any) {
     if (event.target.id !== `modal-${props.title}`) return;
     setState({...state, modalState: !state.modalState});
@@ -33,9 +45,9 @@ const Modal: React.FC<propsInterface> = (props) => {
   return (
     <div>
       <div className='modal' id={'modal-' + props.title} onClick={toggleModal}>
-        <div className='card' id={'card-' + props.title}>
+        <div className='card' id={'card-' + props.title} >
         {state.showLogin 
-        ? <Login toggleLogin={toggleLogin} toggleModal={toggleModal}/> 
+        ? <Login toggleLogin={toggleLogin} toggleModal={toggleModal}/>
         : <Join toggleLogin={toggleLogin} toggleModal={toggleModal}/>}
         </div>
       </div>

@@ -1,4 +1,4 @@
-import React, {useContext, useState, useEffect} from 'react';
+import React, {useContext, useState} from 'react';
 import Context from './context';
 import {translations} from '../translations/home';
 import loading from '../images/loading.svg';
@@ -16,10 +16,6 @@ const Join: React.FC<propsInterface> = (props) => {
   const formValue = (event: React.ChangeEvent<HTMLInputElement>) => {setState({...state, [event.target.name]: event.target.value.trim()})}
   const txt = translations[global.language];
 
-  useEffect(() => {
-    const fullNameInput = document.getElementById("fullName");
-    if(fullNameInput) fullNameInput.focus()
-  }, [])
 
   async function submitForm() {
     const valid = validate(state.email, state.newPassword, state.fullName);

@@ -25,7 +25,7 @@ small::before {
     height: 12px;
     transform: rotateY(0deg) rotate(45deg);
     left: -7px;
-    background-color: $error-background-dark;;
+    background-color: $error-background-light;
     border-bottom: 1.3px solid $text-error;
     top: 11px;
   }
