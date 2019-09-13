@@ -15,25 +15,16 @@ const Layout: React.FC<propsInterface> = (props) => {
   const { global } = useContext(Context) as {global: any};
   const [state, setState] = useState({menuState: false}); 
 
-
-
   useEffect(() => {
-    const currentFolder = props.location.pathname.split('/')[1];
-    const sidenav = document.getElementById('sidenav');
-    if (currentFolder === 'my') {
-      // make a history array of 2 items if the prev was not /my then animate, otherwise display block
-      if (sidenav) sidenav.animate([{opacity: 0}, {opacity: 0.9}], 
-        {duration: 200, easing: 'ease-in-out', fill: 'forwards'});
-        setTimeout(() => { 
-          if (sidenav) sidenav.style.display = 'block';
-         }, 200);
-    } else {
-      console.log('hide menu')
-      if (sidenav) sidenav.style.display = 'none';
-    }
-    
     const screen = document.getElementById('layout-screen');
     const fixed = document.getElementById('layout-fixed');
+    
+    const sidenav = document.getElementById('sidenav');
+
+
+
+    
+
     function imScrolling() {
       if (screen) {
         const scrollPosition = screen.scrollTop / 200;
@@ -45,8 +36,19 @@ const Layout: React.FC<propsInterface> = (props) => {
     }
 
     function displayWindowSize() {
+      const currentFolder = props.location.pathname.split('/')[1];
+
       const windowWidth = window.innerWidth;
       if (windowWidth > 800) {
+
+        
+        if (currentFolder === 'my' && windowWidth > 800) {      
+          const page = document.getElementById('page');
+          if (page) page.style.left = '275px';
+            setTimeout(() => { 
+              if (sidenav) sidenav.style.display = 'block';
+            }, 200);
+        } 
         const page = document.getElementById('page');
         const footer = document.getElementById('layout-footer');
         const body = document.getElementById('layout-body');
@@ -54,6 +56,12 @@ const Layout: React.FC<propsInterface> = (props) => {
           const rect = page.getBoundingClientRect();
           body.style.height = `${rect.height +65}px`;
         }
+      } else  {
+        if (currentFolder !== 'my') {
+          if (sidenav) sidenav.style.display = 'none';
+        }
+        const page = document.getElementById('page');
+        if (page) page.style.left = '0px';
       }
     }
     displayWindowSize();
@@ -115,12 +123,12 @@ const Layout: React.FC<propsInterface> = (props) => {
         <div className='fixed' id='layout-fixed'>
           <section className='warning' id='layout-warning'><Warning/></section>
           <section className='header'><Header toggleMenu={toggleMenu}/></section>
+          <div className='sidenav' id='sidenav'><SideMenu location={props.location}/></div>
         </div>
         <section className='menu'><Menu toggleMenu={toggleMenu}/></section>
         <section className='cover' id='layout-cover' onClick={toggleMenu}></section>
         
         <section className='body' id='layout-body'>
-          <div className='sidenav' id='sidenav'><SideMenu /></div>
           {props.children}
         </section>
         

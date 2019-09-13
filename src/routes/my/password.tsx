@@ -2,7 +2,8 @@ import React from "react";
 
 const Password: React.FC = () => {
   return (
-    <div className='page'>Password
+    <div className='page' id='page'>
+      Password
     </div>
     
   );
