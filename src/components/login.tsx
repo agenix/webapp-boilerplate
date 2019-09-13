@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import Context from './context';
 import {translations} from '../translations/home';
 import loading from '../images/loading.svg';
@@ -14,6 +14,11 @@ const Login: React.FC<propsInterface> = (props) => {
   const [state, setState] = useState({loading: false, email: '', password: '', emailError: '', passwordError: ''});
   const formValue = (event: React.ChangeEvent<HTMLInputElement>) => {setState({...state, [event.target.name]: event.target.value})}
   const txt = translations[global.language];
+
+  useEffect(() => {
+    const emailInput = document.getElementById("loginEmail");
+    if(emailInput) emailInput.focus()
+  }, [])
 
   async function submitForm() {
     const valid = validate(state.email, state.password);

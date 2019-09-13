@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
     <footer>
       <div className='area'>
         <div><Link to={{pathname: '/'}}><div className="footerLogo"><img src={global.darkMode ? logoDark : logoLight} alt={txt.worbliLogo}/></div></Link></div>
-        <div>{txt.termsAndConditions}</div>
+        <div>{txt.termsOfService}</div>
         <div>{txt.privacyPolicy}</div>
         <div className='copyright'>{txt.copyright}</div>
         <div>&nbsp;</div>

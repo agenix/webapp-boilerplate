@@ -5,6 +5,7 @@
     display: grid;
     grid-template-columns: repeat(1, auto);
     grid-gap: 12px;
+
     .label {
         display: block;
         padding: 8px 0 6px;
@@ -25,13 +26,21 @@
         max-width: 230px;
         margin: auto;
         span {
+            color: $text-link-light;
             font-weight: 600;
             cursor: pointer;
+        }
+        .no-link {
+            color: $body-text-light;
         }
     }
     .title {
         font-family: Gilroy;
         font-size: 24px;
+    }
+    .error {
+        border: 1px solid $text-error !important;
+        color: $border-error !important;
     }
     .input-text {
         width: 100%;
@@ -41,25 +50,22 @@
         border: none;
         border-radius: 5px;
         font-size: 14px;
-        color: #393D4D;
-        background: #EBECED;
+        color: $input-text-light;
+        background: $input-background-light;
+        border: 1px solid $input-border-light;
         font-weight: 500;
         border: 2px solid transparent;
     }
-    .error {
-        border: 2px solid $text-error;
-        color: $border-error;
 
-    }
     .btn-join {
         padding: 0 20px;
-        color: #fff;
+        color: $button-text-light;
         font-weight: 700;
         cursor: pointer;
         line-height: 40px;
         border-radius: 5px;
         font-size: 14.5px;
-        background: #2581E3;
+        background: $button-background-light;
         margin: 8px 0 6px;
         width: 100%;
         .loading {
@@ -74,9 +80,17 @@
 @media (prefers-color-scheme: dark) {
 
     .join {
+        .input-text {
+            border: 1px solid $input-border-dark;
+            color: $input-text-dark;
+            background: $input-background-dark;
+        }
         .small-text {
             span {
                color: $text-link-dark 
+            }
+            .no-link {
+                color: $body-text-dark;
             }
         }
     }
@@ -86,9 +100,17 @@
 @media (prefers-color-scheme: light) {
 
     .join {
+        .input-text {
+            border: 1px solid $input-border-light;
+            color: $input-text-light;
+            background: $input-background-light;
+        }
         .small-text {
             span {
                color: $text-link-light 
+            }
+            .no-link {
+                color: $body-text-light;
             }
         }
     }

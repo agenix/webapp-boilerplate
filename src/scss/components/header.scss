@@ -43,6 +43,8 @@ header {
                 background: rgba(0,0,0,0);
                 transition: background .4s ease-in-out;
                 .initial {
+                    color: $namePill-text-light;
+                    background-color: $namePill-background-light;
                     border-radius: 50%;
                     height: 28px;
                     width: 28px;
@@ -53,21 +55,25 @@ header {
                     padding: 1px
                 }
                 .name {
-                    
+                    color: $namePill-text-light;
                     font-weight: 600;
                     line-height: 35px;
                     margin: 0 15px 0 5px;
                 }
             }
             .namePill:hover {
-                background: black;
+                background-color: $namePill-hover-light;
             }
+        }
+        a {
+            color: $body-text-light;
+            text-decoration: none;
+        }
+        a:hover {
+            color: $link-text-light
         }
     }
 
-    .textNav a {
-        text-decoration: none;
-    }
 
     .menuNav {
         cursor: pointer;
@@ -123,9 +129,9 @@ header {
                 }
             }
             a {
-                color: $body-text-light;
+            color: $body-text-light;
             }
-            a:hover{
+            a:hover {
                 color: $link-text-light
             }
         }

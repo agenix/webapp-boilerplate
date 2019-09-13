@@ -25,6 +25,7 @@
     }
     
     .item a {
+        color: $body-text-light;
         font-size: 14px;
         cursor: pointer;
         text-decoration: none;
@@ -32,24 +33,24 @@
     }
     
     .item a:hover {
-        color: #78C7FC
+        color: $link-text-light
     } 
 
     @media (prefers-color-scheme: dark) {
         .item a{
-            color: #FFFFFF;
+            color: $body-text-dark;
         }
         .item a:hover{
-            color: #78C7FC;
+            color: $link-text-dark;
         }
     }
 
     @media (prefers-color-scheme: light) {
         .item a{
-            color: #363D47;
+            color: $body-text-light;
         }
         .item a:hover{
-            color: #267FBE
+            color: $link-text-light
         }
     }
 

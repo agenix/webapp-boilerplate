@@ -1,23 +1,51 @@
 small {
     position: absolute;
     left: 100%;
-
-    background: #fff;
+    background: $error-background-light;
     box-shadow: 0 2px 7px rgba(0,0,0,0.15), 0 0 1px rgba(0,0,0,0.45);
     border-radius: 3px;
     margin-left: 14px;
     font-size: 13px;
     line-height: 18px;
-    color: #4f5663;
-    padding: 13px;
+    color: $error-text-light;
     width: 160px;
+    border: 1px solid $text-error;
+    height: 40px;
+    padding: 11px;
+    width: fit-content;
+    max-width: 160px;
 }
 
 small::before {
     content: '';
     position: absolute;
-    right: 100%;
+    z-index: 99999;
+    border-left: 1.3px solid $text-error;
+    width: 12px;
+    height: 12px;
+    transform: rotateY(0deg) rotate(45deg);
+    left: -7px;
+    background-color: $error-background-dark;;
+    border-bottom: 1.3px solid $text-error;
     top: 11px;
-    border: 8px solid transparent;
-    border-right-color: #fff;
   }
+
+@media (prefers-color-scheme: dark) {
+    small {
+        background: $error-background-dark;
+        color: $error-text-dark;
+    };
+    small::before {
+        border-right-color: $error-background-dark;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    small {
+        background: $error-background-light;
+        color: $error-text-light;
+    };
+    small::before {
+        border-right-color: $error-background-light;
+    }
+}

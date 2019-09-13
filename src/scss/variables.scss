@@ -43,11 +43,17 @@ $border-error: #d2928c;
 $join-background-dark: #3080E2;
 $join-background-light: #78C8FD;
 
+$join-hover-dark: rgb(41, 110, 196);
+$join-hover-light: rgb(121, 121, 121);
+
 $join-text-dark: #FFFFFF;
 $join-text-light: #FFFFFF;
 
 $login-background-dark: #EDEEF0;
 $login-background-light: #EDEEF0;
+
+$login-hover-dark: rgb(201, 201, 201);
+$login-hover-light: rgb(121, 121, 121);
 
 $login-text-dark: #434649;
 $login-text-light: #434649;
@@ -67,3 +73,25 @@ $namePill-hover-light: rgba(0,0,0,1);
 
 $namePill-background-dark: #3080E2;
 $namePill-background-light: #78C8FD;
+
+$input-text-dark: #E7E7E7;
+$input-text-light: #393D4D;
+
+$input-background-dark: #1F262B;
+$input-background-light: #EBECED;
+
+$input-border-dark: #1E2022;
+$input-border-light: #EBECED;
+
+
+$button-text-dark: #fff;
+$button-text-light: #fff;
+
+$button-background-dark: #2581E3;
+$button-background-light: #2581E3;
+
+$error-text-dark: #d2908b;
+$error-text-light: #4f5663;
+
+$error-background-dark: #1f262c;
+$error-background-light: #fff;

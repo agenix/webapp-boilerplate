@@ -17,6 +17,7 @@
         border: 1px solid $modal-border-light;
         background-color: $modal-background-light;
         color: $modal-text-light;
+        box-shadow: 0 0 4px rgba(0,0,0,0.9);
         width: 400px;
         border-radius: 10px;
         opacity: 0;
@@ -44,7 +45,12 @@
     text-align: center;
     position: relative;
     top: 15px;
+    transition: background .2s ease-in-out;
 }
+.modal-join:hover {
+    background-color: $join-hover-light;
+}
+
 .modal-login {
     color: $login-text-light;
     background-color: $login-background-light;
@@ -58,10 +64,14 @@
     text-align: center;
     position: relative;
     top: 15px;
+    transition: background .2s ease-in-out;
+}
+.modal-login:hover {
+    background-color: $login-hover-light;
 }
 
-@media (prefers-color-scheme: dark) {
 
+@media (prefers-color-scheme: dark) {
     .modal {
         .card {
             border: 1px solid $modal-border-dark;
@@ -73,9 +83,15 @@
         color: $join-text-dark;
         background-color: $join-background-dark;
     }
+    .modal-join:hover {
+        background-color: $join-hover-dark;
+    }
     .modal-login {
         color: $login-text-dark;
         background-color: $login-background-dark;
+    }
+    .modal-login:hover {
+        background-color: $login-hover-dark;
     }
     .modal-title {
         color: $body-text-dark;
@@ -98,9 +114,15 @@
         color: $join-text-light;
         background-color: $join-background-light;
     }
+    .modal-join:hover {
+        background-color: $join-hover-light;
+    }
     .modal-login {
         color: $login-text-light;
         background-color: $login-background-light;
+    }
+    .modal-login:hover {
+        background-color: $login-hover-light;
     }
     .modal-title {
         color: $body-text-light;

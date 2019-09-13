@@ -1,5 +1,6 @@
 import React, {useState, useContext, useEffect} from 'react';
 import Context from './context';
+import { Link } from 'react-router-dom';
 import { Menu } from './menu';
 import { Header } from './header';
 import { Warning } from './warning';
@@ -18,37 +19,61 @@ const Layout: React.FC<propsInterface> = (props) => {
   useEffect(() => {
     const screen = document.getElementById('layout-screen');
     const fixed = document.getElementById('layout-fixed');
-    
     const sidenav = document.getElementById('sidenav');
-
-
-
-    
+    const nav = document.getElementById('nav');
+    const body = document.getElementById('layout-body');
+    const currentFolder = props.location.pathname.split('/')[1];
+    const windowWidth = window.innerWidth;
 
     function imScrolling() {
+      // sets the shaddow when scrolling down
       if (screen) {
         const scrollPosition = screen.scrollTop / 200;
         const rounded = Math.round( scrollPosition * 10 ) / 10
-        if (scrollPosition < 100 ) {
-          if (fixed) fixed.style["boxShadow"] = `0 0 4px rgba(0,0,0,${rounded})`;
+        if (scrollPosition < 100 && rounded < 0.9) {
+          if (fixed) fixed.style["boxShadow"] = `0 0 2px rgba(0,0,0,${rounded})`;
+          if (nav) nav.style["boxShadow"] = `0 1px 2px rgba(0,0,0,${rounded})`;
         }
       }
     }
 
     function displayWindowSize() {
-      const currentFolder = props.location.pathname.split('/')[1];
-
-      const windowWidth = window.innerWidth;
-      if (windowWidth > 800) {
-
-        
-        if (currentFolder === 'my' && windowWidth > 800) {      
-          const page = document.getElementById('page');
-          if (page) page.style.left = '275px';
-            setTimeout(() => { 
-              if (sidenav) sidenav.style.display = 'block';
-            }, 200);
+      // redirect to home page if not logged in
+      const jwtToken = localStorage.getItem("jwtToken");
+      const goToHome = document.getElementById('goToHome');
+      if (currentFolder === 'my' && !jwtToken) {
+        if (localStorage.length > 0 ) {
+          localStorage.clear();
         } 
+        if (goToHome) goToHome.click()
+      }
+      
+      // if we are in the my folder show the side nav, if we are not then hide it
+      if (currentFolder !== 'my') {
+        if (sidenav) sidenav.style.display = 'none';
+        if (body) {
+          body.style.display = 'block';
+          body.style.paddingLeft = '0px';
+          body.style.paddingRight = '0px';
+        }
+      } else if (currentFolder === 'my') {
+        if (sidenav) sidenav.style.display = 'block';
+      }
+
+      // if we are in the my folder and the page is > 800 move the page over to the left so we can see the nav
+      if(currentFolder === 'my' && windowWidth > 800) {
+        const page = document.getElementById('page');
+        if (page) page.style.left = '275px';
+      }
+
+      // if the window is less than 800 move the page back to the left
+      if (windowWidth < 800)  {
+        const page = document.getElementById('page');
+        if (page) page.style.left = '0px';
+      }
+
+      // if the window > than 800 set the mody to be the same height as the page
+      if (windowWidth > 800) {
         const page = document.getElementById('page');
         const footer = document.getElementById('layout-footer');
         const body = document.getElementById('layout-body');
@@ -56,13 +81,7 @@ const Layout: React.FC<propsInterface> = (props) => {
           const rect = page.getBoundingClientRect();
           body.style.height = `${rect.height +65}px`;
         }
-      } else  {
-        if (currentFolder !== 'my') {
-          if (sidenav) sidenav.style.display = 'none';
-        }
-        const page = document.getElementById('page');
-        if (page) page.style.left = '0px';
-      }
+      }  
     }
     displayWindowSize();
     window.addEventListener("resize", displayWindowSize);
@@ -136,6 +155,7 @@ const Layout: React.FC<propsInterface> = (props) => {
         <section className='footer' id='layout-footer'><Footer/></section>
         }
       </main>
+      <Link id='goToHome' to={{pathname: '/'}} className='hidden'/>
     </div>
   );
 }
