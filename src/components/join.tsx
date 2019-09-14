@@ -145,13 +145,13 @@ const Join: React.FC<propsInterface> = (props) => {
         {!state.loading ? 'Join Now!' : <img src={loading} alt="loading" className='loading'/>}
       </button>
 
-      <p className='small-text'>{txt.alreadyOnWorbli} 
-        <span onClick={props.toggleLogin}>{txt.logIn}</span>
+      <p className='small-text'> {txt.alreadyOnWorbli} 
+        <span onClick={props.toggleLogin}> {txt.logIn}</span>
       </p>
 
       <p className='small-text'>{txt.byJoiningYouAgreeToOur}
-        <span onClick={goToTerms} id='modal-join' className='no-link'> {txt.temrsOfService}</span> {txt.and} 
-        <span onClick={goToPrivacy} id='modal-join' className='no-link'> {txt.privacyPolicy}</span>
+        <span onClick={goToTerms} id='modal-join' className='no-link'> {txt.temrsOfService} </span> {txt.and} 
+        <span onClick={goToPrivacy} id='modal-join' className='no-link'> {txt.privacyPolicy} </span>
       </p>
 
       <Link id='goToTerms' to={{pathname: '/terms'}} className='hidden' />
