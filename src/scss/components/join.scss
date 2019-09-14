@@ -17,6 +17,7 @@
     span {
         position: relative;
         @import 'error.scss';
+        @import 'confirm.scss';
     }
     .small-text {
         text-align: center;
@@ -58,6 +59,13 @@
         border: 2px solid transparent;
     }
 
+    img {
+        position: absolute;
+        left: calc(100% - 42px);
+        top: 33px;
+        cursor: pointer;
+        padding: 12px
+    }
     .btn-join {
         padding: 0 20px;
         color: $button-text-light;

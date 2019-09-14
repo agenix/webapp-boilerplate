@@ -47,8 +47,8 @@ const Modal: React.FC<propsInterface> = (props) => {
       <div className='modal' id={'modal-' + props.title} onClick={toggleModal}>
         <div className='card' id={'card-' + props.title} >
         {state.showLogin 
-        ? <Login toggleLogin={toggleLogin} toggleModal={toggleModal}/>
-        : <Join toggleLogin={toggleLogin} toggleModal={toggleModal}/>}
+        ? <Login toggleLogin={toggleLogin} toggleModal={toggleModal} />
+        : <Join toggleLogin={toggleLogin} toggleModal={toggleModal} />}
         </div>
       </div>
       <div onClick={toggleModal} className={'modal-' + props.title} id={'modal-' + props.title}> 

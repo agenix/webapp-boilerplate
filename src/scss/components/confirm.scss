@@ -1,4 +1,4 @@
-small {
+.confirm small {
     position: absolute;
     left: 100%;
     background: $error-background-light;
@@ -7,45 +7,45 @@ small {
     margin-left: 14px;
     font-size: 13px;
     line-height: 18px;
-    color: $error-text-light;
+    color: $confirm-text-light;
     width: 160px;
-    border: 1px solid $text-error;
+    border: 1px solid $text-confirm;
     padding: 11px;
     width: fit-content;
     max-width: 160px;
 }
 
-small::before {
+.confirm small::before {
     content: '';
     position: absolute;
     z-index: 99999;
-    border-left: 1.3px solid $text-error;
+    border-left: 1.3px solid $text-confirm;
     width: 12px;
     height: 12px;
     transform: rotateY(0deg) rotate(45deg);
     left: -7px;
     background-color: $error-background-light;
-    border-bottom: 1.3px solid $text-error;
+    border-bottom: 1.3px solid $text-confirm;
     top: 11px;
   }
 
 @media (prefers-color-scheme: dark) {
-    small {
+    .confirm small {
         background: $error-background-dark;
-        color: $error-text-dark;
+        color: $confirm-text-dark;
     };
-    small::before {
+    .confirm small::before {
         background: $error-background-dark;
         border-right-color: $error-background-dark;
     }
 }
 
 @media (prefers-color-scheme: light) {
-    small {
+    .confirm small {
         background: $error-background-light;
-        color: $error-text-light;
+        color: $confirm-text-light;
     };
-    small::before {
+    .confirm small::before {
         background: $error-background-light;
         border-right-color: $error-background-light;
     }

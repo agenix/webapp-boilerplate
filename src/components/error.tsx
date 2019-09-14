@@ -6,7 +6,7 @@ interface propsInterface {
 
 const Error: React.FC<propsInterface> = (props) => {
   return (
-    <small>{props.message}</small>
+    <small className='error'>{props.message}</small>
   );
 }
 

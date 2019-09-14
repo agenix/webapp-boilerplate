@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import Context from './context';
 import {translations} from '../translations/home';
 import loading from '../images/loading.svg';
@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom';
 
 interface propsInterface {
   toggleModal: (event: any) => void
-  toggleLogin: (event: any) => void,
+  toggleLogin: (event: any) => void
 }
 
 const Join: React.FC<propsInterface> = (props) => {
@@ -16,6 +16,15 @@ const Join: React.FC<propsInterface> = (props) => {
   const formValue = (event: React.ChangeEvent<HTMLInputElement>) => {setState({...state, [event.target.name]: event.target.value.trim()})}
   const txt = translations[global.language];
 
+  useEffect(() => {
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("newPassword");
+    const fullNameInput = document.getElementById("fullName");
+    if (emailInput) emailInput.classList.remove("error");
+    if (passwordInput) passwordInput.classList.remove("error");
+    if (fullNameInput) fullNameInput.classList.remove("error");
+    setState({loading: false, email: '', newPassword: '', fullName: '', emailError: '', passwordError: '', fullNameError:''});
+  },[props.toggleLogin])
 
   async function submitForm() {
     const valid = validate(state.email, state.newPassword, state.fullName);
