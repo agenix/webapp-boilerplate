@@ -7,7 +7,6 @@ const Warning: React.FC = () => {
   const { global, setGlobal } = useContext(Context) as {global: any; setGlobal: React.Dispatch<React.SetStateAction<any>>};
   const txt = translations[global.language];
 
-
   let confirm = useRef<HTMLDivElement>(null);
   let resend = useRef<HTMLDivElement>(null);
   let invalid = useRef<HTMLDivElement>(null);
@@ -97,10 +96,10 @@ const Warning: React.FC = () => {
 
   return (
     <section className='warning-bar' ref={warningBar}>
-      <div className='confirm' ref={confirm}> {txt.pleaseConfirmEmail} <Link to={{pathname: '/my/profile'}}>{txt.updateYourEmail}</Link> {txt.or} <span onClick={resendConfirmation}>{txt.resendConfirmation}</span></div>
-      <div className='invalid' ref={invalid}> {txt.invalidConfirmationCode}</div>
-      <div className='confirmed' ref={confirmed}> {txt.emailConfirmed} </div>
-      <div className='resend' ref={resend}> {txt.resendEmail}</div>
+      <div className='confirm-warning' ref={confirm}> {txt.pleaseConfirmEmail} <Link to={{pathname: '/my/profile'}}>{txt.updateYourEmail}</Link> {txt.or} <span onClick={resendConfirmation}>{txt.resendConfirmation}</span></div>
+      <div className='invalid-warning' ref={invalid}> {txt.invalidConfirmationCode}</div>
+      <div className='confirmed-warning' ref={confirmed}> {txt.emailConfirmed} </div>
+      <div className='resend-warning' ref={resend}> {txt.resendEmail}</div>
     </section>
   );
   

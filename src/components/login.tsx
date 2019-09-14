@@ -20,7 +20,10 @@ const Login: React.FC<propsInterface> = (props) => {
   useEffect(() => {
     const emailInput = document.getElementById("loginEmail");
     const passwordInput = document.getElementById("loginPassword");
-    if (emailInput) emailInput.classList.remove("error");
+    if (emailInput) {
+      emailInput.classList.remove("error");
+      setState({loading: false, email: '', password: '', emailError: '', passwordError: '', forgotEmail: ''});
+    }
     if (passwordInput) passwordInput.classList.remove("error");
     setState({loading: false, email: '', password: '', emailError: '', passwordError: '',  forgotEmail: ''});
   },[props.toggleLogin])
@@ -114,6 +117,7 @@ const Login: React.FC<propsInterface> = (props) => {
       <span>
         <label className="label">{txt.email}</label>
         <input
+          value={state.email}
           id="loginEmail"
           type="input" 
           className="input-text" 
@@ -126,6 +130,7 @@ const Login: React.FC<propsInterface> = (props) => {
       <span>
         <label className="label">{txt.password}</label>
         <input 
+          value={state.password}
           id="loginPassword"
           type="password" 
           className="input-text" 

@@ -1,6 +1,6 @@
 .warning-bar {
     background-color: $confirm-background-light;
-    color: $confirm-text-light;
+    color: $warning-text-light;
     text-align: center;
     height: 0px;
     font-size: 1.1rem;
@@ -12,27 +12,27 @@
     flex-direction: column;
     width: 100%;
     text-align: center;
-    .confirm {
+    .confirm-warning {
         span {
             font-weight: 800;
             cursor: pointer;
         }
     }
     a {
-        color: $confirm-text-light;
+        color: $warning-text-light;
         font-weight: 800;
         text-decoration: none;
     }
-    .confirm {
+    .confirm-warning {
         display: none;
     }
-    .invalid {
+    .invalid-warning {
         display: none;
     }
-    .confirmed {
+    .confirmed-warning {
         display: none;
     }
-    .resend {
+    .resend-warning {
         display: none;
     }
 }
@@ -40,9 +40,9 @@
 @media (prefers-color-scheme: dark) {
     .warning-bar {
         background-color: $confirm-background-dark;
-        color: $confirm-text-dark;
+        color: $warning-text-dark;
         a {
-            color: $confirm-text-dark;
+            color: $warning-text-dark;
         }
     }
 }
@@ -51,9 +51,9 @@
 @media (prefers-color-scheme: light) {
     .warning-bar {
         background-color: $confirm-background-light;
-        color: $confirm-text-light;
+        color: $warning-text-light;
         a {
-            color: $confirm-text-light;
+            color: $warning-text-light;
         }
     }
 }
