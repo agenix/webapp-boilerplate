@@ -142,7 +142,7 @@ export const translations: { [key: string]: {
     logout: 'Log out',
     confirmPassword: 'Confirm password',
     resetPassword: 'Reset password',
-    emailIsRequiredResend: 'Emial is required to reset your password',
+    emailIsRequiredResend: 'Email is required to reset your password',
   },
   en: {
     language: 'English',
@@ -215,6 +215,6 @@ export const translations: { [key: string]: {
     logout: 'Log out',
     confirmPassword: 'Confirm password',
     resetPassword: 'Reset password',
-    emailIsRequiredResend: 'Emial is required to reset your password',
+    emailIsRequiredResend: 'Email is required to reset your password',
   },
 }
