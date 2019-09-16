@@ -43,7 +43,7 @@ header {
                 background: rgba(0,0,0,0);
                 transition: background .4s ease-in-out;
                 .initial {
-                    color: $namePill-text-light;
+                    color: $initialPill-text-light;
                     background-color: $namePill-background-light;
                     border-radius: 50%;
                     height: 28px;
@@ -90,7 +90,7 @@ header {
             .loggedIn {
                 .namePill {
                     .initial {
-                        color: $namePill-text-dark;
+                        color: $initialPill-text-dark;
                         background: $namePill-background-dark;
                     }
                     .name {
@@ -117,7 +117,7 @@ header {
             .loggedIn {
                 .namePill {
                     .initial {
-                        color: $namePill-text-light;
+                        color: $initialPill-text-light;
                         background-color: $namePill-background-light;
                     }
                     .name {

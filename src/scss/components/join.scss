@@ -41,8 +41,8 @@
         font-size: 24px;
     }
     .error {
-        border: 1px solid $text-error !important;
-        color: $border-error !important;
+        border: 1px solid $text-error-light !important;
+        color: $border-error-light !important;
     }
     .input-text {
         width: 100%;
@@ -62,7 +62,7 @@
     .btn-forgot {
         position: absolute;
         left: calc(100% - 42px);
-        top: 33px;
+        top: 30px;
         cursor: pointer;
         padding: 12px
     }
@@ -92,6 +92,10 @@
         .title {
             color: $h1-text-dark;
         }
+        .error {
+            border: 1px solid $text-error-dark !important;
+            color: $border-error-dark !important;
+        }
         .input-text {
             border: 1px solid $input-border-dark;
             color: $input-text-dark;
@@ -114,6 +118,10 @@
     .join {
         .title {
             color: $h1-text-light;
+        }
+        .error {
+            border: 1px solid $text-error-light !important;
+            color: $border-error-light !important;
         }
         .input-text {
             border: 1px solid $input-border-light;

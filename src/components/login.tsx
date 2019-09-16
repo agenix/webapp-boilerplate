@@ -29,9 +29,9 @@ const Login: React.FC<propsInterface> = (props) => {
   },[props.toggleLogin])
 
   async function forgotPassword() {
-    const emailError = validateEmail(state.email);
+    const emailError = validateResend(state.email);
     if (emailError) {
-      setState({...state, emailError});
+      setState({...state, emailError, passwordError: ''});
     } else {
       setState({...state, forgotEmail: 'Password reset sent', emailError: ''});
       const response = await fetch(`${global.apiUrl}/user/reset_password`, {
@@ -78,6 +78,13 @@ const Login: React.FC<propsInterface> = (props) => {
     };
   };
 
+
+  function validateResend(email: string) {
+    const emailRegex = /\S+@\S+\.\S+/;
+    if (!email) return txt.emailIsRequiredResend;
+    if (!emailRegex.test(email)) return txt.emailIsInvalid; 
+    return ''; 
+  }
 
   function validateEmail(email: string) {
     const emailRegex = /\S+@\S+\.\S+/;

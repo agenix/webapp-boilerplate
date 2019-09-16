@@ -7,9 +7,9 @@ small {
     margin-left: 14px;
     font-size: 13px;
     line-height: 18px;
-    color: $error-text-light;
+    color: $text-error-light;
     width: 160px;
-    border: 1px solid $text-error;
+    border: 1px solid $text-error-light;
     padding: 11px;
     width: fit-content;
     max-width: 160px;
@@ -19,22 +19,24 @@ small::before {
     content: '';
     position: absolute;
     z-index: 99999;
-    border-left: 1.3px solid $text-error;
+    border-left: 1.3px solid $text-error-light;
     width: 12px;
     height: 12px;
     transform: rotateY(0deg) rotate(45deg);
     left: -7px;
     background-color: $error-background-light;
-    border-bottom: 1.3px solid $text-error;
+    border-bottom: 1.3px solid $text-error-light;
     top: 11px;
   }
 
 @media (prefers-color-scheme: dark) {
     small {
         background: $error-background-dark;
-        color: $error-text-dark;
+        color: $text-error-dark;
     };
     small::before {
+        border-left: 1.3px solid $text-error-dark;
+        border-bottom: 1.3px solid $text-error-dark;
         background: $error-background-dark;
         border-right-color: $error-background-dark;
     }
@@ -43,9 +45,11 @@ small::before {
 @media (prefers-color-scheme: light) {
     small {
         background: $error-background-light;
-        color: $error-text-light;
+        color: $text-error-light;
     };
     small::before {
+        border-left: 1.3px solid $text-error-light;
+        border-bottom: 1.3px solid $text-error-light;
         background: $error-background-light;
         border-right-color: $error-background-light;
     }

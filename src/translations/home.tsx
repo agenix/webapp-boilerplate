@@ -69,6 +69,7 @@ export const translations: { [key: string]: {
     logout: string;
     confirmPassword: string,
     resetPassword: string,
+    emailIsRequiredResend: string,
   }} = {
   cn: {
     language: 'Chinese',
@@ -108,7 +109,7 @@ export const translations: { [key: string]: {
     privacyPolicy: 'Privacy Pplicy',
     copyright: 'Ⓒ Worbli LLC 2019. All rights reserved.',
     joinWorbli: 'Join Worbli',
-    worbliIs: 'Worbli is the place to discover amazing dApps curated by our global community.',
+    worbliIs: 'Worbli is the place to create amazing dApps for our global community.',
     password: 'Password',
     alreadyOnWorbli: 'Already on Worbli?',
     logIn: 'Log In.',
@@ -141,6 +142,7 @@ export const translations: { [key: string]: {
     logout: 'Log out',
     confirmPassword: 'Confirm password',
     resetPassword: 'Reset password',
+    emailIsRequiredResend: 'Emial is required to reset your password',
   },
   en: {
     language: 'English',
@@ -180,7 +182,7 @@ export const translations: { [key: string]: {
     privacyPolicy: 'Privacy policy',
     copyright: 'Ⓒ Worbli LLC 2019. All rights reserved.',
     joinWorbli: 'Join Worbli',
-    worbliIs: 'Worbli is the place to discover amazing dApps curated by our global community.',
+    worbliIs: 'Worbli is the place to create amazing dApps for our global community.',
     password: 'Password',
     alreadyOnWorbli: 'Already on Worbli?',
     logIn: 'Log In.',
@@ -213,5 +215,6 @@ export const translations: { [key: string]: {
     logout: 'Log out',
     confirmPassword: 'Confirm password',
     resetPassword: 'Reset password',
+    emailIsRequiredResend: 'Emial is required to reset your password',
   },
 }

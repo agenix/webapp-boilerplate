@@ -73,6 +73,13 @@ const Warning: React.FC = () => {
       resend.current.style.display = "block";
       resend.current.animate([{opacity: 0}, {opacity: 1}], {duration: 500, easing: 'ease-in-out', fill: 'forwards'});
     }
+    setTimeout(() => {
+      hideAll();
+      if (confirm.current) {
+        confirm.current.style.display = "block";
+        confirm.current.animate([{opacity: 0}, {opacity: 1}], {duration: 500, easing: 'ease-in-out', fill: 'forwards'});
+      }
+    }, 3000);
     const jwtToken = localStorage.getItem("jwtToken");
     const response = await fetch(`${global.apiUrl}/user/resend_email`, {
       method: 'POST',
@@ -82,16 +89,7 @@ const Warning: React.FC = () => {
       },
       body: JSON.stringify({jwtToken})
     });
-    const content = await response.json();
-    if(content) {
-      setTimeout(() => {
-        hideAll();
-        if (confirm.current) {
-          confirm.current.style.display = "block";
-          confirm.current.animate([{opacity: 0}, {opacity: 1}], {duration: 500, easing: 'ease-in-out', fill: 'forwards'});
-        }
-      }, 3000);
-    }
+    console.log(response)
   }
 
   return (

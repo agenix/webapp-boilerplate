@@ -11,7 +11,7 @@ $h1-text-dark: #4e94ea;
 $h1-text-light: #3080E2;
 
 $top-border-dark: #111518;
-$top-border-light: #EDEDED;
+$top-border-light: #d8d8d8;
 
 $menu-background-dark: #252D32;
 $menu-background-light: #EBECED;
@@ -37,8 +37,11 @@ $modal-border-light: #FEFEFE;
 $text-link-dark: #3080E2;
 $text-link-light: #616671;
 
-$text-error: #db6265;
-$border-error: #d2928c;
+$text-error-light: #3080E2;
+$border-error-light: #3080E2;
+
+$text-error-dark: #db6265;
+$border-error-dark: #db6265;
 
 $text-confirm: #62db6c;
 $border-confirm: #8cd290;
@@ -62,20 +65,24 @@ $login-text-dark: #434649;
 $login-text-light: #434649;
 
 $confirm-background-dark: #3080E2;
-$confirm-background-light: #78C8FD;
+$confirm-background-light: #3080E2;
 
 $warning-text-dark: #FFFFFF;
 $warning-text-light: #FFFFFF;
 
 
 $namePill-text-dark: #FFFFFF;
-$namePill-text-light: #FFFFFF;
+$namePill-text-light: #434649;
+
+$initialPill-text-dark: #FFFFFF;
+$initialPill-text-light: #FFFFFF;
+
 
 $namePill-hover-dark: rgba(0,0,0,1);
-$namePill-hover-light: rgba(0,0,0,1);
+$namePill-hover-light: rgba(219, 219, 219, 1);
 
 $namePill-background-dark: #3080E2;
-$namePill-background-light: #78C8FD;
+$namePill-background-light: #3080E2;
 
 $input-text-dark: #E7E7E7;
 $input-text-light: #393D4D;
@@ -93,11 +100,8 @@ $button-text-light: #fff;
 $button-background-dark: #2581E3;
 $button-background-light: #2581E3;
 
-$error-text-dark: #d2908b;
-$error-text-light: #4f5663;
-
 $confirm-text-dark: #8cd290;
 $confirm-text-light: #4f5663;
 
 $error-background-dark: #1f262c;
-$error-background-light: #EBECED;
+$error-background-light: rgb(255, 255, 255);
