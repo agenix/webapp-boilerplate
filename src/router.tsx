@@ -30,6 +30,7 @@ import Password from './routes/my/password';
 import Profile from './routes/my/profile';
 import Settings from './routes/my/settings';
 import NotFound from './routes/not-found';
+import Reset from './routes/reset';
 import Context from "./components/context";
 import { Layout } from "./components/layout";
 
@@ -85,6 +86,7 @@ const Router: React.FC = () => {
                     <Route exact path = '/my/password' component = {Password} />
                     <Route exact path = '/my/profile' component = {Profile} />
                     <Route exact path = '/my/settings' component = {Settings} />
+                    <Route path = '/reset_password/:resetCode' component = {Reset} />
                     <Route path = '/confirm_email/:confirmationCode' component = {Confirm} />
                     <Route component = {NotFound}/>
                   </Switch>

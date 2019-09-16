@@ -34,7 +34,7 @@ const Login: React.FC<propsInterface> = (props) => {
       setState({...state, emailError});
     } else {
       setState({...state, forgotEmail: 'Password reset sent', emailError: ''});
-      const response = await fetch(`${global.apiUrl}/user/reset`, {
+      const response = await fetch(`${global.apiUrl}/user/reset_password`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',

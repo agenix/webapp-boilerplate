@@ -29,6 +29,7 @@ const Layout: React.FC<propsInterface> = (props) => {
     const nav = document.getElementById('nav');
     const currentFolder = props.location.pathname.split('/')[1];
     const windowWidth = window.innerWidth;
+    const windowheight = window.innerHeight;
 
     function imScrolling() {
       if (layoutScreen.current) {
@@ -76,7 +77,8 @@ const Layout: React.FC<propsInterface> = (props) => {
         const page = document.getElementById('page');
         if (page && layoutFooter.current && layoutBody.current) {
           const rect = page.getBoundingClientRect();
-          layoutBody.current.style.height = `${rect.height +65}px`;
+          if(rect.height > windowheight) layoutBody.current.style.height = `${rect.height +65}px`;
+          else layoutBody.current.style.height = 'calc(100vh - 350px)';
         }
       }  
     }

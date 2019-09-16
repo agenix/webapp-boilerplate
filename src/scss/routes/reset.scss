@@ -1,0 +1,50 @@
+.reset {
+    position: relative;
+    .card {
+        margin: 0 auto !important;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 10px;
+        width: 300px;
+        .label {
+            display: block;
+            padding: 8px 0 6px;
+            font-size: 14px;
+        }
+        .title {
+            color: $h1-text-dark;
+            font-family: Gilroy;
+            font-size: 24px;
+        }
+        .input-text {
+            width: 100%;
+            vertical-align: middle;
+            padding: 8px 12px;
+            line-height: 19px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            color: $input-text-light;
+            background: $input-background-light;
+            border: 1px solid $input-border-light;
+            font-weight: 500;
+            border: 2px solid transparent;
+        }
+        .btn-reset {
+            padding: 0 20px;
+            color: $button-text-light;
+            font-weight: 700;
+            cursor: pointer;
+            line-height: 40px;
+            border-radius: 5px;
+            font-size: 14.5px;
+            background: $button-background-light;
+            margin: 8px 0 6px;
+            width: 100%;
+            .loading {
+                height: 10px;
+            }
+        }
+    }
+
+}

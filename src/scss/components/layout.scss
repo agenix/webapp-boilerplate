@@ -3,14 +3,17 @@
     position: relative;
     height: 100vh;
     overflow-y: auto;
+    background-color: #252d32;
     -webkit-overflow-scrolling: touch;
 
     .layout {
+        background-color: #252D32;
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         position: relative;
+        height: inherit;
         .fixed {
-            height: auto;
+            height: fit-content;
             background-color: $background-light;
             .header {
                 @import 'header.scss';
@@ -36,10 +39,11 @@
             grid-template-columns:  250px auto;
             grid-gap: 10px;
             padding: 0 24px;
+            height: calc(100vh - 350px);
             .page {
                 position: absolute;
                 display: block;
-                padding: 0px 24px;
+                padding: 0px 24px 24px 24px;
             }
 
             
@@ -81,6 +85,7 @@
             @import 'menu.scss';
         }
         .footer {
+            background-color: #1f262b;
             border-top: 1px solid $top-border-light;
             border-bottom: 50px solid $footer-border-lihgt;
             display: none;

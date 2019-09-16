@@ -48,6 +48,9 @@ html {
     font-feature-settings: "liga" on;
     @import "animations/page-animations.scss";
     @import "components/layout.scss";
+    .page {
+      @import "routes/reset.scss";
+    }
   }
 }
 

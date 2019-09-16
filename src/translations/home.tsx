@@ -67,6 +67,8 @@ export const translations: { [key: string]: {
     profile: string,
     settings: string,
     logout: string;
+    confirmPassword: string,
+    resetPassword: string,
   }} = {
   cn: {
     language: 'Chinese',
@@ -137,6 +139,8 @@ export const translations: { [key: string]: {
     profile: 'Profile',
     settings: 'Settings',
     logout: 'Log out',
+    confirmPassword: 'Confirm password',
+    resetPassword: 'Reset password',
   },
   en: {
     language: 'English',
@@ -207,5 +211,7 @@ export const translations: { [key: string]: {
     profile: 'Profile',
     settings: 'Settings',
     logout: 'Log out',
+    confirmPassword: 'Confirm password',
+    resetPassword: 'Reset password',
   },
 }
