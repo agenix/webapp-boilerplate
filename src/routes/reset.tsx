@@ -7,7 +7,7 @@ import {Error} from '../components/error'
 import loading from '../images/loading.svg';
 
 interface MyProps {
-    resetCode: string,
+    resetPasswordCode: string,
 }
 
 const Reset: React.FC<RouteComponentProps<MyProps>> = (props) => {
@@ -16,20 +16,49 @@ const Reset: React.FC<RouteComponentProps<MyProps>> = (props) => {
     const formValue = (event: React.ChangeEvent<HTMLInputElement>) => {setState({...state, [event.target.name]: event.target.value.trim()})}
     const txt = translations[global.language];
 
-    const resetCode = props.match.params.resetCode;
-    if (resetCode) console.log(resetCode);
-    let linkToHome = useRef<HTMLDivElement>(null);
-
+    const resetPasswordCode = props.match.params.resetPasswordCode;
+    const linkToHome = useRef<HTMLDivElement>(null);
     const resetPassword = useRef<HTMLInputElement>(null);
     const resetPasswordConfirm = useRef<HTMLInputElement>(null);
       
     async function submitForm() {
-        if(state.resetPassword && state.resetPasswordConfirm) console.log('fire');
+      const resetPasswordError = validatePassword(state.resetPassword);
+      const resetPasswordConfirmError = validatePassword(state.resetPasswordConfirm)
+      setState({...state, resetPasswordError, resetPasswordConfirmError});
+      if(resetPassword.current && resetPasswordError) resetPassword.current.classList.add("error");
+      else if (resetPassword.current) resetPassword.current.classList.remove("error")
+      if(resetPasswordConfirm.current && resetPasswordConfirmError) resetPasswordConfirm.current.classList.add("error");
+      else if (resetPasswordConfirm.current) resetPasswordConfirm.current.classList.remove("error");
+      if (!resetPasswordError && !resetPasswordConfirmError) {
+        if(state.resetPassword !== state.resetPasswordConfirm) {
+          setState({...state, resetPasswordError: '', resetPasswordConfirmError: 'Passwords do not match'});
+        } else {
+          const response = await fetch(`${global.apiUrl}/user/confirm_password`, {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({newPassword: state.resetPassword, resetPasswordCode})
+          });
+          const content = await response.json();
+          if (response.status === 200) {
+            console.log(content);
+          }
+        }
 
+      }
     };
 
+    function validatePassword(password: string) {
+      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?:.{6,})$/;
+      if (!password) return txt.passwordIsRequired;
+      if (!passwordRegex.test(password)) return txt.passwordLength;
+      return '';
+    }
+
   return (
-    <div className='page' id='page'>
+    <div className='page page-reset' id='page'>
         <div className='reset'>
             <div className='card'>
             <div className='title'>{txt.resetPassword}</div> 

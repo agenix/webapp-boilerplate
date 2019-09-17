@@ -86,7 +86,7 @@ const Router: React.FC = () => {
                     <Route exact path = '/my/password' component = {Password} />
                     <Route exact path = '/my/profile' component = {Profile} />
                     <Route exact path = '/my/settings' component = {Settings} />
-                    <Route path = '/reset_password/:resetCode' component = {Reset} />
+                    <Route path = '/reset_password/:resetPasswordCode' component = {Reset} />
                     <Route path = '/confirm_email/:confirmationCode' component = {Confirm} />
                     <Route component = {NotFound}/>
                   </Switch>

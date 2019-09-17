@@ -24,7 +24,7 @@ header {
         grid-template-columns: repeat(4, auto);
         grid-gap: 40px;
         font-weight: 500;
-        font-size: 14px;
+        font-size: 1.3rem;
         @import 'modal.scss';
 
         .loggedOut {
@@ -98,7 +98,7 @@ header {
                         color: $namePill-text-dark;
                     }
                 }
-                .namePull:hover {
+                .namePill:hover {
                     background: $namePill-hover-dark;
                 }
             }
@@ -125,7 +125,7 @@ header {
                         color: $namePill-text-light;
                     }
                 }
-                .namePull:hover {
+                .namePill:hover {
                     background-color: $namePill-hover-light;
                 }
             }
